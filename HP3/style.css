@@ -1,0 +1,50 @@
+body {
+    margin: 10px; padding: 0px; min-height: 100vh;
+    display: flex;  align-items: center;
+    flex-direction: column; background-color: #fafafa;
+    color: black; font-family: sans-serif;
+}
+
+/* コンテンツを中央に寄せ、幅を制限する（これがレイアウトの肝です）←ほーん */
+header, main {
+    max-width: 800px; /* 横幅の最大値 */
+    margin: 0 auto;   /* 左右の余白を自動にして中央揃え */
+    padding: 20px;
+}
+#navLink {
+    align-self: flex-end; /* bodyの「中央寄せ」を無視して、自分だけ右端に寄る */
+    /*margin-left: auto;*/
+} 
+
+nav ul {
+    list-style: none;
+    padding: 10px 20px;
+}
+nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+a {
+    margin-left: 0px;
+    text-decoration: none;
+    color: #0366d6;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+/* ヘッダーの装飾 */
+header {
+    border-bottom: 2px solid #c6c6c6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+main {
+    background-color: #ffffff;
+    margin-top: 30px;
+    padding: 40px;
+    width : 800px;
+    border-radius: 8px; /* 角を少し丸くする */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* うっすらと影をつける */
+}
