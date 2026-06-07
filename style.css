@@ -8,6 +8,7 @@ body {
 /* コンテンツを中央に寄せ、幅を制限する（これがレイアウトの肝です）←ほーん */
 header, main {
     max-width: 800px; /* 横幅の最大値 */
+    width: 100%;
     margin: 0 auto;   /* 左右の余白を自動にして中央揃え */
     padding: 20px;
 }
@@ -45,6 +46,7 @@ main {
     margin-top: 30px;
     padding: 40px;
     width : 800px;
+    max-width: 90%;
     border-radius: 8px; /* 角を少し丸くする */
     box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* うっすらと影をつける */
 }
