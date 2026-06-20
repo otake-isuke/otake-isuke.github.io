@@ -9,8 +9,28 @@
     },
     svg: {
       matchFontHeight: false
+    },
+    tex: {
+        macros: {
+        // \newcommand{\R}{\mathbb{R}} と同じ
+        R: "{\\mathbb{R}}",
+        C: "{\\mathbb{C}}",
+        Z: "{\\mathbb{Z}}",
+        Q: "{\\mathbb{Q}}",
+        
+        S: "{\\mathcal{S}}",
+
+        e: "{\\varepsilon}",
+        
+        // 引数を取る場合：\newcommand{\vector}[1]{\mathbf{#1}} と同じ
+        // [マクロ名, 定義, 引数の数] の順に指定します
+        vec: ["{\\mathbf{#1}}", 1],
+        
+        // 既存のコマンドを組み合わせる例
+        set: ["{\\{ #1 \\}}", 1]
+        }
     }
-  };
+};
 </script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <head>
@@ -24,6 +44,13 @@
     </header>
     <main>
         <h2>日記</h2>
+        <h3>2026年6月20日（土）</h3>
+        <p>
+            今日はスタインシャカルチ第4巻の関数解析で, 1次元のHilbert変換の \(L^p\to L^p\) としての有界性の証明を見た(但しここに \(1 < p < \infty\) ). Hilbert変換の定義は同値なものが様々あるが, \(f\in L^2\) として
+            $$ H_\e f(x) = \int_{\{|t|>\e\}}f(x-t)\frac{dt}t $$とし, \( H_\e f\) の \(\e\to 0\) での \(L^2\) 収束先を \(Hf\) として(ひとまず \(f\in L^2\) に対して)定義できる.
+            ここで非自明なこととしてまず, \(H_\e f\in L^2\) であること, またそれが収束することがある. 前者について, 今 \(H_\e=f*k_\e\) 但し, $$k_\e(t)=\begin{cases}\frac 1t&(|t|>\e)\\0&(|t|\leq\e)\end{cases}$$であり,
+            \(k_\e\notin L^1\) であることを考えると,  \(f\in L^2\) と \(k_\e\) の畳み込みが \(L^2\) に入るのは大変非自明である (畳み込みのYoungの不等式はそれを保証してくれない).
+        </p>
         <h3>2026年6月19日（金）</h3>
         <p>
             マニ車って偉いお坊さんが放つ功徳を動力にする自動車、もしくはモーターをお経につなげて徳を発生させながら走る自動車のことだと思ってたけど、どうやら違うようだと言うことを今日知った.
