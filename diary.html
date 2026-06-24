@@ -18,6 +18,11 @@
         Z: "{\\mathbb{Z}}",
         Q: "{\\mathbb{Q}}",
         
+        dis: "{\\displaystyle}",
+        bra: ["{\\left(#1\\right)}",1],
+        
+        L: "{\\mathcal{L}}",
+        M: "{\\mathcal{M}}",
         S: "{\\mathcal{S}}",
 
         e: "{\\varepsilon}",
@@ -27,7 +32,10 @@
         vec: ["{\\mathbf{#1}}", 1],
         
         // 既存のコマンドを組み合わせる例
-        set: ["{\\{ #1 \\}}", 1]
+        set: ["{\\{ #1 \\}}", 1],
+
+        // \DeclareMathOperator{\tg}{tg} と同じ
+        supp: "{\\operatorname{supp}\\,}",
         }
     }
 };
@@ -44,6 +52,32 @@
     </header>
     <main>
         <h2>日記</h2>
+        <h3>2026年6月24日（水）</h3>
+        <p>
+            \(\R^2\setminus\{0\}\) において \(\triangle\log |x|=0\) であるが, 超関数としては \(\triangle\log |x|^2\ne 0\) である.
+            実際, \(\triangle\log |x|=2\pi\delta\) である.
+        </p>
+        <p>
+            \(A\subset \R\) の Fourier次元 は \(\dim_F A=\sup\{0 < s < 1:\exists \mu\in\M(A), |\widehat{\mu}(x)| \leq |x|^{-s/2}\}\)
+            と定められる. 但し\(\M(A)=\{\mu: \R^n\text{の0でない有限Borel測度, } \supp\mu\subset A\}\). ここだけの記号として \(A^{*k}:=A+\cdots+A=\{a_1+\cdots+a_k : a_i \in A\}\) と書いた時,
+            \(\dim_F A > 1/k\) なら \(\L^1(A^{*k})>0\), \(\dim_F A > 2/k\) なら \(\mathrm{Int}\,A^{*k}\ne\varnothing\) である.
+            しかしこれは Hausdorff 次元に置き換えると成り立たない.
+            <ol>
+                <li>
+                    \(0 < l < m\) を整数とする. \(A\subset [0,1]\) であって, $$\bigcup_{i=0}^{l-1} \bra{\frac im + m^{-1}A}=A$$をみたすような
+                    \(A\) のうちで包含について最大のものを, ここだけの記号として \(A(l,m)\) とする. つまり, \([0,1]\) を \(m\) 等分して
+                    前から \(l\) 個を残してあとは捨てる, という操作を繰り返してできる図形である. すると \(\dim A(l,m)=\log l/\log m\) になる.
+                </li>
+                <li>
+                    \(\dim A(3,7)=\log3/\log7 > 1/2 \) だが, \(A(3,7)^{*2}\subset A(5,7)\) である( \(A(l,m)\) は, 「各桁に \(0 \sim l-1\) しか現れないような \(m\) 進数表示をもつ数の全体」であるから. )
+                    ので, \(\L^1(A(3,7)^{*2})\leq \L^1(A(5,7))=0\).
+                </li>
+                <li>
+                    \(\dim A(10,30)=\log10/\log30 > 2/3 \) だが, \(A(10,30)^{*3}\subset A(28,30)\) である
+                    ので, \(\L^1(A(10,30)^{*2})\leq \L^1(A(28,30))=0\). 特に内部は空.
+                </li>
+            </ol>
+        </p>
         <h3>2026年6月23日（火）</h3>
         <p>
             今日の関数解析の授業ではスペクトル半径定理を証明した. 大変非自明であるが, Banach代数が連続関数環のときは自明である. これに限らず, \(C(X)\) をBanach代数と捉えるとなにかいいことがあるのか, よくわからない.
