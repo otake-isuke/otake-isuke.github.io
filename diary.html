@@ -26,6 +26,7 @@
         M: "{\\mathcal{M}}",
         S: "{\\mathcal{S}}",
 
+        a: "{\\alpha}",
         e: "{\\varepsilon}",
         
         // 引数を取る場合：\newcommand{\vector}[1]{\mathbf{#1}} と同じ
@@ -55,12 +56,12 @@
         <h2>日記</h2>
         <h3>2026年7月8日（水）</h3>
         <p>
-            \(1 < p < \infty\), \(f, f_n\in L^p(\R)\) で, \(f_n \to f\quad(\text{weakly})\) かつ \(f_n\to g\quad(\text{a.e.})\) ならば, \(f=g\) である.
-            \(g\in L^p(\R)\) などの条件はなくともよい. 示そう. ここで \(f_n-f\) を考えることで, \(f=0\) であると仮定してよい. また議論の見かけを簡単にするため, 適当な代表元を取り, a.e. 収束でなく, 各点収束であるとしてよい. すると \(f_n\to g\) (a.e.) かつ \(f_n\to 0\) (weakly) である.
-            ここで \(g\ne 0\) と仮定すると, \(\e > 0, R > 0\) が存在して, \(E=\{x\in [-R,R] : \mathrm{Re} g(x) > \e\}\) として \(\L^1\bra{E}>0\) としてよい. ここで
-            \(E_N=\{x\in E : \forall n \in \N, n \geq N \implies |g(x)-f_n(x)| < \e/2\}\) とすると \(E=\bigcup_{n=1}^\infty E_n\) であるから, \(\L^1(E_N)>0\) となる \(N\) が存在する. すると \(n\geq N\) に対して \(\mathrm{Re} f_n(x) \geq \e/2\) in \(E_N\) であるから,
-            \(\mathrm{Re} \int\chi_{E_N} f_n \geq \int_{E_N} \e/2\), \(\mathrm{Re} \lim_{n\to\infty}\int\chi_{E_N} f_n \geq \int_{E_N} \e/2 > 0\).
-            しかし \(n\to\infty\) で \(\int\chi_{E_N} f_n \to 0\) であるから, 矛盾.
+            \(1 \leq p \leq \infty\), \(f, f_n\in L^p(\R)\) で, \(f_n \to f\quad(\text{weakly})\) かつ \(f_n\to g\quad(\text{a.e.})\) ならば, \(f=g\) である.
+            \(g\in L^p(\R)\) などの条件はなくともよい. 示そう. ここで \(f_n-f\) を考えることで, \(f=0\) であると仮定してよい. すると \(f_n\to g\) (a.e.) かつ \(f_n\to 0\) (weakly) である.
+            ここで \(g\ne 0\) と仮定すると, \(\e > 0\) と \(R > 0\) と \(|\alpha|=1\) なる \(\alpha\in\C\) が存在して, \(\L^1\bra{E}>0\) である. 但し \(E=\{x\in [-R,R] : \mathrm{Re} \ \a g(x) > \e\}\). またここで \(\alpha=1\) としてよい. ここで
+            \(E_N=\{x\in E : \forall n \in \N, n \geq N \implies |g(x)-f_n(x)| < \e/2\}\) とおくと \(E=\bigcup_{n=1}^\infty E_n\) であるから, \(\L^1(E_N)>0\) となる \(N\) が存在する. すると \(n\geq N\) に対して \(\mathrm{Re} f_n(x) \geq \e/2\) in \(E_N\) であるから,
+            \(\mathrm{Re} \ \int_{E_N} f_n \geq \int_{E_N} \e/2\).
+            しかし \(\chi_{E_N} \in L^{p^\prime}(\R) \subset L^p(\R)^* \) より, \(n\to\infty\) で \(\int_{E_N} f_n \to 0\) であるから, 矛盾.
         </p>
         <h3>2026年7月7日（火）</h3>
         <p>
