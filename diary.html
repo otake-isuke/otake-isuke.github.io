@@ -60,10 +60,10 @@
         <p>
             問題1：次のような条件を満たすSchwartz関数 \(f\in \S(\R^n)\) は存在しないことを示せ.
             <br>
-            　「\(f\) は非負値関数で, そのフーリエ変換 \(\widehat{f}\) はある開集合の上で常に 1.」
+            　「\(f\) は非負値関数で, そのフーリエ変換 \(\widehat{f}\) は0を含むある開集合の上で常に 1.」
             <br>
-            示そう. \(\widehat{f}=1\) in \(B(0,1)\) の場合で考える. 今 \(g\in \S(\R^n) \) で \(\supp \widehat g \subset B(0,1) \) となるものが存在する.
-            \(f*g=\F^{-1}[\widehat{f}\hat{g}]=\F^{-1}\hat g=g \) である. いま \(|g(x)|=|(f*g)(x)|\leq\int f(x-y)|g(y)| \ dy\leq\int f(x-y)\|g\|_\infty\ dy=\|g\|_\infty \) だが, \(|g|\) は最大値を持つから, \(|g(x)|=\|g\|_\infty\) となる \(x\) が存在する.
+            解答： \(\widehat{f}=1\) in \(B(0,r)\) となる \(r > 0\) がとれる. 今 \(g\in \S(\R^n) \) で \(\supp \widehat g \subset B(0,r) \) となるものが存在する.
+            \(f*g=\F^{-1}[\hat{f}\widehat{g}]=\F^{-1}\widehat{g}=g \) である. いま \(|g(x)|=|(f*g)(x)|\leq\int f(x-y)|g(y)| \ dy\leq\int f(x-y)\|g\|_\infty\ dy=\|g\|_\infty \) だが, \(|g|\) は最大値を持つから, \(|g(x)|=\|g\|_\infty\) となる \(x\) が存在する.
             するとその \(x\) に対して \(\int f(x-y)|g(y)| \ dy=\int f(x-y)\|g\|_\infty \ dy\) であるから, 任意の \(y\) に対して \(f(x-y)(\|g\|_\infty-|g(y)|)=0\) . しかし十分遠方で \(|g(y)| < \|g\|_\infty\) であるから, そこで \(f=0\) となり, \(f\) はコンパクト台を持つ. これは \(\widehat{f}\) がある開集合の上で定数であることに矛盾.
         </p>
         <p>
