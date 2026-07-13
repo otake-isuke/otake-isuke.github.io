@@ -29,7 +29,8 @@
 
         a: "{\\alpha}",
         e: "{\\varepsilon}",
-        hat: ["{\\widehat{#1}}", 1],
+        wwidehat: ["{\\widehat{\\, #1 \\ }}", 1],
+        wwidetilde: ["{\\widetilde{\\, #1 \\ }}", 1],
         
         // 引数を取る場合：\newcommand{\vector}[1]{\mathbf{#1}} と同じ
         // [マクロ名, 定義, 引数の数] の順に指定します
@@ -56,14 +57,29 @@
     </header>
     <main>
         <h2>日記</h2>
+        <h3>2026年7月13日（月）</h3>
+        <p>
+            問題1'：次のような条件を満たすSchwartz関数 \(f\in \S(\R^n)\) を構成せよ.
+            <br>
+            　「\(f\) は非負値関数で, そのフーリエ変換 \(\widehat{f}\) はある空でない開集合の上で常に 1.」
+            <br>
+            解答： \(\psi\) を, \(\supp\psi\subset B(0,1)\) で, \(\psi\geq 0\) で, \(\int\psi=1\) となるような \(C^\infty\) 級関数とする. また \(\varphi\in C_c^\infty(\R^n)\) を, \(0\leq\varphi\leq 1\) で, \(\supp\varphi\subset B(12e_1,3)\), \(\varphi=1\) in \(B(12e_1,2)\) となるようにとる.
+            またチルダを反転、つまり \(\wwidetilde g(x)=g(-x)\) として, \(f= \F((\varphi + \psi)*(\widetilde\varphi + \widetilde\psi))\) と定めると, \(f=|\widehat\varphi+\widehat\psi|^2 \geq 0\) で, かつ \(\widehat f = (\varphi + \psi)*(\widetilde\varphi + \widetilde\psi)\) であるが,
+            \(\supp\varphi*\widetilde\varphi\subset B(0,2)\), \(\supp\varphi*\widetilde\varphi\subset B(0,6)\), \(\supp\psi*\widehat\varphi\subset B(-12e_1,4)\) であるから,
+            \(x\in B(12e_1,1)\) に対して \(\widehat f(x) = (\varphi*\widetilde\psi)(x)=\int\varphi(x-y)\widetilde\psi(y)\ dy=\int\psi=1\).
+        </p>
+        <p>
+            H30の院試を解いた. 関数解析の割合が多くなっているように思う. B9は強いて言えば測度論の問題だが, 関数解析の要素も多分にある. B12がフーリエといえばフーリエなのだが,
+            こういうのは求めていない (それはそれとして解きやすいので解くが).
+        </p>
         <h3>2026年7月12日（日）</h3>
         <p>
             問題1：次のような条件を満たすSchwartz関数 \(f\in \S(\R^n)\) は存在しないことを示せ.
             <br>
             　「\(f\) は非負値関数で, そのフーリエ変換 \(\widehat{f}\) は0を含むある開集合の上で常に 1.」
             <br>
-            解答： \(\widehat{f}=1\) in \(B(0,r)\) となる \(r > 0\) がとれる. 今 \(g\in \S(\R^n) \) で \(\supp \widehat g \subset B(0,r) \) となるものが存在する.
-            \(f*g=\F^{-1}[\hat{f}\widehat{g}]=\F^{-1}\widehat{g}=g \) である. いま \(|g(x)|=|(f*g)(x)|\leq\int f(x-y)|g(y)| \ dy\leq\int f(x-y)\|g\|_\infty\ dy=\|g\|_\infty \) だが, \(|g|\) は最大値を持つから, \(|g(x)|=\|g\|_\infty\) となる \(x\) が存在する.
+            解答： \(\widehat{f}=1\) in \(B(0,r)\) となる \(r > 0\) がとれる. 今 \(g\in \S(\R^n) \) で \(\supp \wwidehat g \subset B(0,r) \) となるものが存在する.
+            \(f*g=\F^{-1}[\widehat{f}\wwidehat{g}]=\F^{-1}\wwidehat{g}=g \) である. いま \(|g(x)|=|(f*g)(x)|\leq\int f(x-y)|g(y)| \ dy\leq\int f(x-y)\|g\|_\infty\ dy=\|g\|_\infty \) だが, \(|g|\) は最大値を持つから, \(|g(x)|=\|g\|_\infty\) となる \(x\) が存在する.
             するとその \(x\) に対して \(\int f(x-y)|g(y)| \ dy=\int f(x-y)\|g\|_\infty \ dy\) であるから, 任意の \(y\) に対して \(f(x-y)(\|g\|_\infty-|g(y)|)=0\) . しかし十分遠方で \(|g(y)| < \|g\|_\infty\) であるから, そこで \(f=0\) となり, \(f\) はコンパクト台を持つ. これは \(\widehat{f}\) がある開集合の上で定数であることに矛盾.
         </p>
         <p>
