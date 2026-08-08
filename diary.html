@@ -57,6 +57,36 @@
     </header>
     <main>
         <h2>日記</h2>
+        <h3>2026年8月8日（土）</h3>
+        <p>
+            韓国のサマースクールに行っていた人らが帰ってきたようだ.
+        </p>
+        <p>
+            問題：任意の \(2 < p < \infty\) に対して, \(f\in L^p(\R^n)\) が存在して, その超関数としてのFourier変換 \(\wwidehat f\) が \(L^{p^\prime}(\R^n)\) の元でないことを示せ. 但し \(p^\prime\) は \(1/p + 1/p^\prime = 1\) を満たす数である.
+            <br>
+            解答：例によって, 非有界性を示せば十分である. なぜなら, 超関数としてのFourier逆変換を \(L^{p'}\) に制限した \(\F^{-1}:L^{p^\prime}\to L^{p}\) は Hausdorff-Young の不等式から有界作用素で, また単射であるが, もし任意の \(f\in L^p\) に対して \(\F f \in L^{p^\prime}\) であれば, \(\F^{-1}(\F f )=f \) より \(\F^{-1}:L^{p^\prime}\to L^{p}\) は全射となり,
+            開写像定理からその逆作用素 \(\F:L^p\to L^{p'}\) も有界となるからである.
+            \(\psi\in\S(\R^n)\) を, \(\psi\geq 0\), \(\widehat\psi\geq 0\), \(\supp\widehat\psi\subset B(0,1)\), \(\int\widehat\psi=1\) となるようにとる. \(0 < s < n/p\) に対して \(k_s(x)=|x|^{-s}\) とおく. これは Riesz 核と呼ばれる.
+            超関数として, \(\widehat k_s=\gamma(n,s)k_{n-s}\) である. 但し \(\gamma(n,s)=\pi^{s-n/2}\Gamma((n-s)/2)/\Gamma(s/2)\) である. \(f_s(x)=k_s(x)\psi(x)\) とおく.
+            ここで
+            \[
+            \begin{align*}
+            \|f_s\|_p&\leq\bra{\int_{B(0,1)} |x|^{-sp} dx+\|\psi\|_p^p }^{1/p}\\
+            &\leq\bra{\int_{B(0,1)} |x|^{-sp} dx}^{1/p} +\|\psi\|_p\\
+            &\lesssim_{n,p} 1+\bra{\frac 1{n-sp}}^\frac 1p
+            \end{align*}
+            \]
+            であり, \(\supp \widehat\psi\subset B(0,1)\) より, \(|\wwidehat{f_s}(x)| \geq \gamma(n,s)(1+|x|)^{s-n}\) なので,
+            \[
+            \begin{align*}
+            \|\widehat{f_s}\|_{p'} &\geq \gamma(n,s)\bra{\int_{\R^n} (1+|x|)^{-p'(n-s)} dx}^{1/p'} \\
+            &\gtrsim_{n,p} \bra{\int_1^\infty r^{n-1}r^{-p'(n-s)} dr}^{1/p'} \\
+            &\approx_{n,p} \bra{\frac{1}{n-ps}}^{1/p'}.
+            \end{align*}
+            \]
+            但し \(n/2p < s < n/p\) としたので, \(\gamma(n,s)\approx 1\) である. 今 \(p > 2\) より \(p > p'\) であるから, \(s \uparrow n/p\) で
+            \(\|\widehat{f_s}\|_{p'}/\|f_s\|_p \to \infty\) となり, 示された.
+        </p>
         <h3>2026年8月7日（金）</h3>
         <p>
             \(\int f(x)dx\) のことを \(\int f\) と略記することが一般的な記法としてあり, 数ヶ月前から少しずつ採用していたのだが, この記法は考えたことをきれいに・簡潔に纏めたり, 他人に伝えたりする上ではよいと思う(スローガンは短ければ短いほど良い)が,
