@@ -3,49 +3,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="style_gameHub.css">
-<script>
-  window.MathJax = {
-    chtml: {
-      matchFontHeight: false /* 👈 周りの文字の高さに無理に合わせる機能をオフ */
-    },
-    svg: {
-      matchFontHeight: false
-    },
-    tex: {
-        macros: {
-        // \newcommand{\R}{\mathbb{R}} と同じ
-        R: "{\\mathbb{R}}",
-        C: "{\\mathbb{C}}",
-        Z: "{\\mathbb{Z}}",
-        Q: "{\\mathbb{Q}}",
-        N: "{\\mathbb{N}}",
-        
-        dis: "{\\displaystyle}",
-        bra: ["{\\left(#1\\right)}",1],
-        
-        L: "{\\mathcal{L}}",
-        M: "{\\mathcal{M}}",
-        S: "{\\mathcal{S}}",
-        F: "{\\mathcal{F}}",
-
-        a: "{\\alpha}",
-        e: "{\\varepsilon}",
-        wwidehat: ["{\\widehat{\\, #1 \\ }}", 1],
-        wwidetilde: ["{\\widetilde{\\, #1 \\ }}", 1],
-        
-        // 引数を取る場合：\newcommand{\vector}[1]{\mathbf{#1}} と同じ
-        // [マクロ名, 定義, 引数の数] の順に指定します
-        vec: ["{\\mathbf{#1}}", 1],
-        
-        // 既存のコマンドを組み合わせる例
-        set: ["{\\{ #1 \\}}", 1],
-
-        // \DeclareMathOperator{\tg}{tg} と同じ
-        supp: "{\\operatorname{supp}\\,}",
-        }
-    }
-};
-</script>
+<script src="texMacro.js"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <head>
     <meta charset="UTF-8">
@@ -68,17 +26,18 @@
     <p>
         p20, Example 2.9 (ii); rectifiable curve \(\Gamma\) に、例えば \(C^1\) の仮定が必要.<br>
         p22, Theorem 2.13; 主張に \(p \leq q\) の仮定が必要.<br>
-        p31 line 3; "\(\widehat{\mu_\e}=\widehat{\psi_\e}\widehat{\mu}\to\widehat{\mu}\) uniformly" とあるが, 各点収束までしか言えない. 例えばδ測度の場合.<br>
+        p31 line 3; " \(\widehat{\mu_\e}=\widehat{\psi_\e}\widehat{\mu}\to\widehat{\mu}\) uniformly " とあるが, 各点収束までしか言えない. 例えばδ測度の場合.<br>
         p34, equation (3.38); 右辺の \(-t^mJ_{m+1}(t)\) は, \(-t^{-m}J_{m+1}(t)\) の誤り.<br>
-        p40, line 29; "If \(\mu\in\M([0,1]^n)\) with \(|\widehat\mu(z)|\lesssim|z|^{-s/2}\) for \(z\in\Z^n\) and \(\varphi\in\S(\R^n)\),
-            then \(|\widehat{\varphi\mu}(x)|\lesssim|x|^{-s/2}\) for \(x\in\R^n\)" とあるが, 正確には \(\mu\) を周期化した測度 \(\widetilde\mu\) について
+        p40, line 29; " If \(\mu\in\M([0,1]^n)\) with \(|\widehat\mu(z)|\lesssim|z|^{-s/2}\) for \(z\in\Z^n\) and \(\varphi\in\S(\R^n)\),
+            then \(|\widehat{\varphi\mu}(x)|\lesssim|x|^{-s/2}\) for \(x\in\R^n\) " とあるが, 正確には \(\mu\) を周期化した測度 \(\widetilde\mu\) について
             \(|\widehat{\varphi\widetilde\mu}(x)|\lesssim|x|^{-s/2}\) である.<br>
         p41, Theorem 3.13; \(E\) は \(E_\a\) の誤植.<br>
         p45, equation (3.53); \(\mu(Bx,r))\) は \(\mu(B(x,r))\) の誤植.<br>
         p46, equation (3.54); \(\widetilde R=g(L^{-1}(Q_0))\) とあるが, これだと原点中心にならないので, 例えば平行移動の項を加えるなどの修正が要る.<br>
-        p51, equation (3.66); \(Q_n=[0,1]^n\) として "if \(\mu,\nu\in\M(Q_n)\), then \(\widehat\mu(z)=\widehat\nu(z)\) for all \(z\in\Z^n\) implies \(\mu=\nu\) " とあるが,
+        p51, equation (3.66); \(Q_n=[0,1]^n\) として " if \(\mu,\nu\in\M(Q_n)\), then \(\widehat\mu(z)=\widehat\nu(z)\) for all \(z\in\Z^n\) implies \(\mu=\nu\) " とあるが,
             \(\mu=\delta_1,\ \nu=\delta_0\) が反例. 周期化 \(\M([0,1]^n)\to\M(\R^n),\mu\mapsto\sum_{z\in\Z^n}\mu(\cdot - z)\) が単射でないのが原因.<br>
         p52-53, Theorem 3.21; 証明で \(\int(g_\e*f)f=\sum_{z\in\Z^n}\widehat{g_\e}(z)|\widehat{f}(z)|^2\) とあるが, これは左辺の \(g_e\) を周期化した関数 \(G_\e=\sum_{z\in\Z^n}g_\e(\cdot - z)\) にしなくては成り立たないので, 証明にやや修正が必要.<br>
+        p59, equation (4.7); " \(\d(\mu_i)\to\d(\mu)\) weakly if \(\mu_i\to\mu\) weakly " とあるが, これは誤りで, たとえば「 \(\mu_i\) たちが同じコンパクト台を持つ」などの条件が要る.<br>
         p432; T. W. Wolff とあるが, おそらくこれは T. H. Wolff の誤植.<br>
     </p>
 <script src="gameHub.js"></script>
