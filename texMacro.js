@@ -1,6 +1,6 @@
 window.MathJax = {
     chtml: {
-    matchFontHeight: false /* 👈 周りの文字の高さに無理に合わせる機能をオフ */
+    matchFontHeight: false
     },
     svg: {
     matchFontHeight: false
