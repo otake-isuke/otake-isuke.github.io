@@ -15,6 +15,12 @@
     </header>
     <main>
         <h2>日記</h2>
+        <h3>2026年8月17日（月）</h3>
+        <p>
+            問題：\(0 < s < n\) ならば, \(\R^n\) における \(s\) 次元Hdf測度 \(H^s\) は, \(\sigma\)-有限ではないことを示せ.<br>
+            解答：\((E_j)_{j\in\N}\) が存在して \(E_j\subset\R^n\): Borel, \(\bigcup_jE_j=\R^n\), \(H^s(E_j) < \infty\)
+            であるとすると, \(\L^n(E_j)=0\) より \(\infty=\L^n(\R^n)\leq\sum_{j=1}^\infty\L^n(E_j)=0\) で矛盾. \(\qed\)
+        </p>
         <h3>2026年8月14日（金）</h3>
         <p>
             大空もこの大地も〜♪<br>
@@ -27,7 +33,7 @@
             \(\mu_j\to\mu\) (weakly) であるとする. また \(f\in L^1(\R^n)\cap C(\R^n)\) が存在して, 関数として各点で \(\mu_j\to f\) であるとする. このとき \(\mu=f\) であろうか？
             <br>
             解答：
-            否. 例えば \(\mu_j\) を, \([1/n,2/n]\) に台を持つ非負値連続関数で, \(\int \mu_j=1\) となるものとすると, \(\mu_j\to\d\) (weakly) であるが, 各点で \(\mu\to 0\) である. 当然 \(\d\ne0\).
+            否. 例えば \(\mu_j\) を, \([1/n,2/n]\) に台を持つ非負値連続関数で, \(\int \mu_j=1\) となるものとすると, \(\mu_j\to\d\) (weakly) であるが, 各点で \(\mu\to 0\) である. 当然 \(\d\ne0\).\(\qed\)
         </p>
         <h3>2026年8月9日（日）</h3>
         <p>
@@ -61,7 +67,7 @@
             \end{align*}
             \]
             但し \(n/2p < s < n/p\) としたので, \(\gamma(n,s)\approx 1\) である. 今 \(p > 2\) より \(p > p'\) であるから, \(s \uparrow n/p\) で
-            \(\|\widehat{f_s}\|_{p'}/\|f_s\|_p \to \infty\) となり, 示された.
+            \(\|\widehat{f_s}\|_{p'}/\|f_s\|_p \to \infty\) となり, 示された.\(\qed\)
         </p>
         <h3>2026年8月7日（金）</h3>
         <p>
@@ -94,7 +100,7 @@
             &=\infty
             \end{align}
             \]
-            となって, 矛盾.
+            となって, 矛盾.\(\qed\)
         </p>
         <h3>2026年7月31日（金）</h3>
         <p>
@@ -173,7 +179,7 @@
             &\leq \e + \frac 2m \leq 3\e.
             \end{align*}
             \] 
-            以上より \(T\) はコンパクト.
+            以上より \(T\) はコンパクト.\(\qed\)
         </p>
         <h3>2026年7月15日（水）</h3>
         <p>
@@ -194,7 +200,7 @@
             解答： \(\psi\) を, \(\supp\psi\subset B(0,1)\) で, \(\psi\geq 0\) で, \(\int\psi=1\) となるような \(C^\infty\) 級関数とする. また \(\varphi\in C_c^\infty(\R^n)\) を, \(0\leq\varphi\leq 1\) で, \(\supp\varphi\subset B(12e_1,3)\), \(\varphi=1\) in \(B(12e_1,2)\) となるようにとる.
             またチルダを反転、つまり \(\wwidetilde g(x)=g(-x)\) として, \(f= \F((\varphi + \psi)*(\widetilde\varphi + \widetilde\psi))\) と定めると, \(f=|\widehat\varphi+\widehat\psi|^2 \geq 0\) で, かつ \(\widehat f = (\varphi + \psi)*(\widetilde\varphi + \widetilde\psi)\) であるが,
             \(\supp\varphi*\widetilde\varphi\subset B(0,2)\), \(\supp\varphi*\widetilde\varphi\subset B(0,6)\), \(\supp\psi*\widehat\varphi\subset B(-12e_1,4)\) であるから,
-            \(x\in B(12e_1,1)\) に対して \(\widehat f(x) = (\varphi*\widetilde\psi)(x)=\int\varphi(x-y)\widetilde\psi(y)\ dy=\int\psi=1\).
+            \(x\in B(12e_1,1)\) に対して \(\widehat f(x) = (\varphi*\widetilde\psi)(x)=\int\varphi(x-y)\widetilde\psi(y)\ dy=\int\psi=1\).\(\qed\)
         </p>
         <p>
             H30の院試を解いた. 関数解析の割合が多くなっているように思う. B9は強いて言えば測度論の問題だが, 関数解析の要素も多分にある. B12がフーリエといえばフーリエなのだが,
@@ -208,7 +214,7 @@
             <br>
             解答： \(\widehat{f}=1\) in \(B(0,r)\) となる \(r > 0\) がとれる. 今 \(g\in \S(\R^n) \) で \(\supp \wwidehat g \subset B(0,r) \) となるものが存在する.
             \(f*g=\F^{-1}[\widehat{f}\wwidehat{g}]=\F^{-1}\wwidehat{g}=g \) である. いま \(|g(x)|=|(f*g)(x)|\leq\int f(x-y)|g(y)| \ dy\leq\int f(x-y)\|g\|_\infty\ dy=\|g\|_\infty \) だが, \(|g|\) は最大値を持つから, \(|g(x)|=\|g\|_\infty\) となる \(x\) が存在する.
-            するとその \(x\) に対して \(\int f(x-y)|g(y)| \ dy=\int f(x-y)\|g\|_\infty \ dy\) であるから, 任意の \(y\) に対して \(f(x-y)(\|g\|_\infty-|g(y)|)=0\) . しかし十分遠方で \(|g(y)| < \|g\|_\infty\) であるから, そこで \(f=0\) となり, \(f\) はコンパクト台を持つ. これは \(\widehat{f}\) がある開集合の上で定数であることに矛盾.
+            するとその \(x\) に対して \(\int f(x-y)|g(y)| \ dy=\int f(x-y)\|g\|_\infty \ dy\) であるから, 任意の \(y\) に対して \(f(x-y)(\|g\|_\infty-|g(y)|)=0\) . しかし十分遠方で \(|g(y)| < \|g\|_\infty\) であるから, そこで \(f=0\) となり, \(f\) はコンパクト台を持つ. これは \(\widehat{f}\) がある開集合の上で定数であることに矛盾.\(\qed\)
         </p>
         <p>
             問題2：下の命題の反例を作れ.
@@ -292,7 +298,7 @@
                 </li>
                 <li>
                     \(\dim A(10,30)=\log10/\log30 > 2/3 \) だが, \(A(10,30)^{+3}\subset A(28,30)\) である
-                    ので, \(\L^1(A(10,30)^{+2})\leq \L^1(A(28,30))=0\). 特に内部は空.
+                    ので, \(\L^1(A(10,30)^{+2})\leq \L^1(A(28,30))=0\). 特に内部は空.\(\qed\)
                 </li>
             </ol>
         </p>

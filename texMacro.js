@@ -16,6 +16,7 @@ window.MathJax = {
         
         dis: "{\\displaystyle}",
         bra: ["{\\left(#1\\right)}",1],
+        qed: "{\\square}",
         
         L: "{\\mathcal{L}}",
         M: "{\\mathcal{M}}",
