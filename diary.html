@@ -15,9 +15,27 @@
     </header>
     <main>
         <h2>日記</h2>
+        <h3>2026年8月29日（土）</h3>
+        <p>
+            今日は朝から涼しくて肌寒いくらいだった。阿波おどりだか祭りだかがあるというので地元の友達と商店街に行ったのだが、行われている気配が全くなく、おそらく雨のため中止になったのではと言う結論になった。仕方ないので散歩しようということで隣の駅まで歩いたところ、駅前のショッピングモールがちょうど今日オープンしたとのことでせっかくだから入ってみた。
+            とても賑わっていたが奥の方に進むとまだテナントが入っていないところが多く、リミナルスペースみたいになっていた。その後そばの大戸屋で夕食を食べた。量が多くてこんなには要らないなと思ったけれど、それ以外は予想外によかった。
+        </p>
         <h3>2026年8月28日（金）</h3>
         <p>
-            問題：\(1 < p < 2\), \(f\in L^p(\R^n)\) とする. フーリエ変換 \(\widehat f\in L^{p'}(\R^n)\) は遠方で0に収束するか？
+            問題：\(1 < p < 2\), \(f\in L^p(\R^n)\) とする. フーリエ変換 \(\widehat f\in L^{p'}(\R^n)\) は遠方で0に収束するか？ すなわち, \(\lim_{r\to\infty}\|\chi_{\A(0;(r,\infty))}\widehat f\|_\infty=0\) か？ ここで \(\A(x;[a,b])=\{y\in\R^n:|y-x|\in[a,b]\}\).<br>
+            解答：(以下の解答はTwitterで他の人が答えてくれたものであって、私が考えたものではない。)<br>
+            \(0 < a < 1\) を無理数とする. \(\varphi(x)=\chi_{[-a,a]}(x)\) とし,\[f(x)=\sum_{n=1}^\infty\frac 1n\varphi(x-2n)\]とする.
+            すると任意の \(1 < p \leq 2\) に対して \(f\in L^p(\R)\) であり, また\[\widehat f (\xi)=\sum_{n=1}^\infty\frac 1ne^{-2ni\xi}\frac{2\sin a\xi}\xi\quad\text{(但し \(\widehat f(\xi)=\int e^{-ix\xi}f(x)dx\))}\]である.
+            すると各 \(m\in\N\) に対して \(\lim_{\xi\to m\pi}|\widehat f(\xi)|=\infty\) であるから, 遠方で0に収束しない.<br>
+            一応, \(\lim_{\xi\to m\pi}|\widehat f(\xi)|=\infty\) の証明をしよう. \(0 < |\xi-m\pi| < 1\) として
+            \(n\leq\pi/(6|\xi-m\pi|)\) ならば \(\Re e^{-2i\xi n}\geq 1/2\) であるから,
+            \[\begin{align}
+            \Re\sum_{n=1}^\infty \frac 1ne^{-2i\xi n}&=\Re \sum_{n=1}^\infty\frac{s_n}{n(n+1)}\quad(\text{ここで }s_n=\sum_{k=1}^n e^{-2i\xi k}.\text{ Abelの級数変形法.})\\
+            &\geq \sum_{1\leq n\leq \pi/(6|\xi-m\pi|)} \frac{1}{n(n+1)}\frac n2 - \sup_k(\Re s_k)\sum_{n > \pi/(6|\xi-m\pi|)} \frac{1}{n(n+1)}\\
+            &\geq \frac 12\int_1^{\pi/(6|\xi-m\pi|)}\frac{dx}{x+1} - \frac{1}{|\xi-m\pi|}\frac{6|\xi-m\pi|}{\pi}\\
+            &\geq \frac12\log\bra{1+\frac\pi{6|\xi-m\pi|}} - \frac12\log 2 - \frac 6\pi\\
+            &\to\infty.
+            \end{align}\]
         </p>
         <h3>2026年8月27日（木）</h3>
         <p>
