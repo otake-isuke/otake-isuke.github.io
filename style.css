@@ -1,7 +1,7 @@
 body {
     margin: 10px; padding: 0px; min-height: 100vh;
     display: flex;  align-items: center;
-    flex-direction: column; background-color: #fafafa;
+    flex-direction: column; background-color: #dfdfdf;
     color: black; font-family: sans-serif;
 }
 
@@ -36,17 +36,37 @@ a:hover {
 
 /* ヘッダーの装飾 */
 header {
-    border-bottom: 2px solid #c6c6c6;
+    border-bottom: 2px solid #c6c6c6e8;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 main {
-    background-color: #ffffff;
+    background-color: #efefef;
     margin-top: 30px;
     padding: 40px;
     width : 800px;
     max-width: 90%;
     border-radius: 8px; /* 角を少し丸くする */
     box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* うっすらと影をつける */
+}
+
+/* 日記のタグ用 */
+.filter-buttons .filter-btn {
+    padding: 6px 12px;
+    margin-right: 4px;
+    border: 1px solid #ccc;
+    background: #f8f8f8;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.filter-buttons .filter-btn.active {
+    background: #007bff;
+    color: #fff;
+    border-color: #007bff;
+}
+
+/* 非表示用のクラス */
+.hidden {
+    display: none;
 }
