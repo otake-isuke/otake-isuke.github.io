@@ -16,11 +16,12 @@ window.MathJax = {
         
         dis: "{\\displaystyle}",
         bra: ["{\\left(#1\\right)}",1],
-        qed: "{\\square}",
+        qed: "{\\qquad\\qquad\\square}",
         Re: "{\\mathrm{Re}\\ }",
         Im: "{\\mathrm{Im}\\ }",
         
         A: "{\\mathscr{A}}",
+        E: "{\\mathbb{E}}",
         L: "{\\mathcal{L}}",
         M: "{\\mathcal{M}}",
         S: "{\\mathcal{S}}",
@@ -29,6 +30,7 @@ window.MathJax = {
         a: "{\\alpha}",
         d: "{\\delta}",
         e: "{\\varepsilon}",
+        w: "{\\omega}",
         wwidehat: ["{\\widehat{\\, #1 \\ }}", 1],
         wwidetilde: ["{\\widetilde{\\, #1 \\ }}", 1],
         

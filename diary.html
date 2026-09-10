@@ -26,10 +26,50 @@
     <main>
         <h2>日記</h2>
         <div>
+            <h3>2026年9月10日（木）</h3>
+            <p class="article-card" data-tags="daily smallTalk">
+                昨日のニンテンドーダイレクトにてなんと、妖怪ウォッチ2のリメイクである、<a href="https://www.youkai-watch.jp/yw2-hadou/" target="_blank">『妖怪ウォッチ2 覇道』の発売が決定した</a>ことが明かされた！
+                感謝。妖怪ウォッチは私が小学生のときに世を席巻したゲームで、私も大変楽しんでいたのだが、おそらくは新作を急いで作りすぎたために、妖怪ウォッチ3はそのクオリティとストーリーのボリュームにもかかわらずあまり売上が伸びず、失速してしまい、今では当時の影響力は見る影もない。20代前後のファンが大勢いるにはいるが、私含めそいつらは思い出話をするだけで新作を買ってくれないし...... 新作を急いで作りすぎたと言ったが実際、2013年7月に妖怪ウォッチ1(正式名称は「妖怪ウォッチ」)、
+                2014年7月妖怪ウォッチ2 元祖/本家、12月妖怪ウォッチ2 真打、2015年7月バスターズ 赤猫団/白犬隊(12月無料アップデートの月兎組が配信)、2016年7月妖怪ウォッチ3 スシ/テンプラ、12月妖怪ウォッチ3 スキヤキ......頻度が高すぎる、あまりにも。え？毎年出てるんだが。妖怪ウォッチはストーリークリア後のやり込み要素が多くて、小学生にとっては別に2年くらい新作が来なくても遊べただろうし、というかこんなペースで新作が出ると、親にねだっても「また？」と言われてしまうし。
+                ポケモンでさえ大きいタイトルは大体2年くらい間を開けているのに、今なら首を取れる！ と思って急いでしまったのだろうか？ あとバトルシステムを変えるのも早すぎた。3ではバトルシステムがガラッと変更されて、改良ではあると思うが、妖怪ウォッチは新参者なのだから、妖怪ウォッチのテンプレの型をもっとゆっくりなじませるべきで、3作目にして型を破るのは早すぎる。ていうかシリーズ出して3年後だよ？ <br>
+                ......とまあ色々言ったが、ともかくリメイクが来るというのはとても嬉しいし、これのためにSwitch２の購入を検討している。小学生の頃のような時間の割きかたはできないだろうし、今楽しめるのかというと分からないが、小学生の頃のお礼、レベルファイブへのお布施と思って......レベルファイブさん、この流れで３のリメイクを出してくれても構わないんですよ？
+            </p>
+            <p class="article-card" data-tags="math question">
+                月曜に出した問題が解けたので。<br>
+                問題(再掲)：\(f\in C_c(\R^n)\), \(s > 0\) ならば \(\int_{\R^n} |\widehat f(x)|\langle x\rangle^{-s} dx < \infty\) であるか？<br>
+                解答：\(n=1\) の時を考える. \(s > 1/2\) ならば \(\langle x\rangle^{-s},\widehat f(x)\in L^2(\R)\) なので明らか. \(s\leq 1/2\) のときは逆に
+                \(\int_{\R} |\widehat f(x)|\langle x\rangle^{-s} dx = \infty\) なる \(f\in C_0([0,1])\) が存在することを言おう. 但し \(C_0([0,1])=\{f\in C(\R):\supp f\subset[0,1]\}\) である. \(\langle x\rangle^{-s} \geq\langle x\rangle^{-1/2}\) より \(s=1/2\) のときに言えば十分. <br>
+                (I)さて, もしそうでないとすると線形作用素 \(C_0([0,1])\to L^1(\R,\langle x\rangle^{-1/2}dx),\ f\mapsto\widehat f\) が定まるということだが, C_0([0,1])がBanach空間であることと閉グラフ定理より特に有界になる. よって非有界性を示せば十分である.<br>
+                (II)ここで任意の \(f\in C_0([0,1])\) と \(N\in\N\) と \((a_n)_{n=1}^N\subset \{1,-1\}\) に対して
+                \[\begin{align*}
+                \int |\widehat f (x)| \langle x\rangle^{-1/2} dx
+                &\geq |\int\sum_{n=1}^N \frac{a_n\chi_{[n,n+1]}(x)}{\langle n+1\rangle^{1/2}} \widehat f(x)dx|\\
+                &=|\int f(x)\sum_{n=1}^N \frac{a_n}{\langle n+1\rangle^{1/2}} \widehat{\chi_{[n,n+1]}}dx|
+                \end{align*}\]
+                であるから
+                \[\begin{align*}
+                \sup_{f\in C_0([0,1]),\|f\|_\infty =1}\int |\widehat f (x)| \langle x\rangle^{-1/2} dx
+                &\geq\sup_{f\in C_0([0,1])\text{ with }\|f\|_\infty =1,\ N\in\N,\ (a_n)_{n=1}^N\subset \{1,-1\}}|\int f(x)\sum_{n=1}^N \frac{a_n}{\langle n+1\rangle^{1/2}} \widehat{\chi_{[n,n+1]}}dx|\\
+                &=\sup_{N\in\N,\ (a_n)_{n=1}^N\subset \{1,-1\}}\|\chi_{[0,1]}\sum_{n=1}^N \frac{a_n}{\langle n+1\rangle^{1/2}} \widehat{\chi_{[n,n+1]}}\|_1 \qquad \cdots(*)
+                \end{align*}\]
+                であり, \((*)=\infty\) を示せば十分.<br>
+                (III)ここで \(N\in\N\) をとり, \(\w_1,\ldots,\w_N\) を \(N\) 個の独立な確率変数であって, \(-1,1\) を \(1/2\) ずつの確率でとるものとする. このとき \(\|\chi_{[0,1]}\sum_{n=1}^N \frac{\w_n}{\langle n+1\rangle^{1/2}} \widehat{\chi_{[n,n+1]}}\|_1\) の期待値は
+                \[\begin{align}
+                \E[\|\chi_{[0,1]}\sum_{n=1}^N \frac{\w_n}{\langle n+1\rangle^{1/2}} \widehat{\chi_{[n,n+1]}}\|_1]
+                &=\|\E\left[| \chi_{[0,1]}\sum_{n=1}^N \frac{\w_n}{\langle n+1\rangle^{1/2}} \widehat{\chi_{[n,n+1]}} |\right]  \|_1\quad(\text{Fubini's thm})\\
+                &\simeq\| \chi_{[0,1]}\sqrt{\sum_{n=1}^N \frac{\widehat{|\chi_{[n,n+1]}}|^2}{\langle n+1\rangle}}  \|_1\quad(\text{Khinchine's inequality})\\
+                &=\| \chi_{[0,1]}\cdot\widehat{\chi_{[0,1]}}\sqrt{\sum_{n=1}^N \frac{1}{\langle n+1\rangle}}\|_1\\
+                &\simeq\|\chi_{[0,1]}\widehat{\chi_{[0,1]}}\|_1\sqrt{\log N} \simeq\sqrt{\log N}
+                \end{align}\]
+                (途中の定数倍は何にも依らない, 3とか4とか書ける数で, 特に \(N\) に依らない.) 期待値が \(\sqrt{\log N}\) の定数倍以上ということは, 少なくとも \(\sqrt{\log N}\) の定数倍以上になる元があるということで, つまり
+                \((a_n)_{n=1}^N\subset \{1,-1\}\) が存在して \(\|\chi_{[0,1]}\sum_{n=1}^N \frac{a_n}{\langle n+1\rangle^{1/2}} \widehat{\chi_{[n,n+1]}}\|_1 \gtrsim\sqrt{\log N}\) ということであるから, 示せた.\(\qed\)
+            </p>
+        </div>
+        <div>
             <h3>2026年9月9日（水）</h3>
             <p class="article-card" data-tags="daily">
                 広告で流れてくるゲームを怖いもの見たさでやってみたら、ゲームから離れさせない工夫がすごかった。
-                ネットの人はドパガキという言葉を安易に使いすぎだが、流石にこれには私も、これにハマる人はドパガキと呼ぶにふさわしいと思わざるをえなかった。
+                ネットの人はドパガキという言葉を安易に使いすぎだが、流石にこれには私も、これにハマる人はドパガキと呼ぶべきだと思わざるをえなかった。
             </p>
         </div>
         <div>
@@ -50,7 +90,7 @@
             <p class="article-card" data-tags="daily">
                 昨日の日記は深夜寝る直前に変な気分になりながら書いたもので、今見ると恥ずかしくて直視できない。
             </p>
-            <p class="article-card" data-tags="question">
+            <p class="article-card" data-tags="math question">
                 問題：\(f\in C_c(\R^n)\), \(s > 0\) ならば \(\int_{\R^n} |\widehat f(x)|\langle x\rangle^{-s} dx < \infty\) であるか？<br>
                 解答：あした
             </p>
