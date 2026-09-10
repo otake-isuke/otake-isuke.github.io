@@ -65,6 +65,16 @@ main {
     color: #fff;
     border-color: #007bff;
 }
+.tag-badge {
+  font-size: 0.75rem;
+  background-color: #e0e0e0;
+  color: #333;
+  padding: 2px 8px;
+  border-radius: 12px;
+  margin-left: 6px;
+  vertical-align: middle; /* 見出しのテキストと高さを揃える */
+  font-weight: normal;   /* 見出しの太字を解除 */
+}
 
 /* 非表示用のクラス */
 .hidden {

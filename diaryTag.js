@@ -42,3 +42,22 @@ filterButtons.forEach(button => {
     });
     });
 });
+
+//タグの中身を文末に表示したい
+document.addEventListener('DOMContentLoaded', () => {
+  const articles = document.querySelectorAll('.article-card');
+
+  articles.forEach(article => {
+    // 1. data-tags の中身を取得（例: "html css"）
+    const tags = article.dataset.tags.split(' ');
+
+    // 2. タグごとに span 要素を作ってみ出しに追加
+    //span !? なんぞやそれ
+    tags.forEach(tag => {
+      const badge = document.createElement('span');
+      badge.classList.add('tag-badge');
+      badge.textContent = "#" + tag;
+      article.appendChild(badge);
+    });
+  });
+});
