@@ -1,7 +1,12 @@
+:root {
+  --background-color: #c9b3a9;   /* 背景の色 */
+  --article-color: #eee6df; /* 文字が乗るところの色*/
+}
+
 body {
     margin: 10px; padding: 0px; min-height: 100vh;
     display: flex;  align-items: center;
-    flex-direction: column; background-color: #dfdfdf;
+    flex-direction: column; background-color: var(--background-color);
     color: black; font-family: sans-serif;
 }
 
@@ -36,13 +41,14 @@ a:hover {
 
 /* ヘッダーの装飾 */
 header {
-    border-bottom: 2px solid #c6c6c6e8;
+    border-bottom: 2px solid #333333aa;/*#c6c6c6e8*/
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 3px;
 }
-main {
-    background-color: #efefef;
+main, .panel {
+    background-color: var(--article-color);
     margin-top: 30px;
     padding: 40px;
     width : 800px;
@@ -67,13 +73,11 @@ main {
 }
 .tag-badge {
   font-size: 0.75rem;
-  background-color: #e0e0e0;
-  color: #333;
+  background-color: #d4ce99;
+  color: #5c5998;
   padding: 2px 8px;
   border-radius: 12px;
   margin-left: 6px;
-  vertical-align: middle; /* 見出しのテキストと高さを揃える */
-  font-weight: normal;   /* 見出しの太字を解除 */
 }
 
 /* 非表示用のクラス */

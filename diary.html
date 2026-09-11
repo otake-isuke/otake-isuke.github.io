@@ -26,6 +26,43 @@
     <main>
         <h2>日記</h2>
         <div>
+            <h3>2026年9月11日（金）</h3>
+            <p class="article-card" data-tags="daily">
+                講究の先生に修士の指導教員をお願いしたく、またそれについて面談したい旨のメールを送った。先生とのメールはいつまでも距離感が分からなくて苦労する。
+            </p>
+            <p class="article-card" data-tags="math question">
+                昨日の証明をほんのちょっと書き換えるだけで, 一般の \(n\) での証明ができる. わざわざ書かなくてもいいレベルだが, 一応書き下しておく.<br>
+                問題(再々掲)：\(f\in C_c(\R^n)\), \(s > 0\) ならば \(\int_{\R^n} |\widehat f(x)|\langle x\rangle^{-s} dx < \infty\) であるか？<br>
+                解答：\(s > n/2\) ならば \(\langle x\rangle^{-s},\widehat f(x)\in L^2(\R^n)\) なので明らかに成り立つ. 一方
+                \(\int_{\R^n} |\widehat f(x)|\langle x\rangle^{-n/2} dx = \infty\) なる \(f\in C_0([0,1]^n)\) が存在する. 以下で示す.<br>
+                (I)前回同様, 線形作用素 \(C_0([0,1]^n)\to L^1(\R^n,\langle x\rangle^{-n/2}dx),\ f\mapsto\widehat f\ \) の非有界性を示せば十分である.<br>
+                (II) \(N\in\N\) に対して \(A_N=\{a:\{-N,\ldots,N\}^n\to \{1,-1\}\}\) とおく. 任意の \(f\in C_0([0,1]^n)\) と \(N\in\N\) と \(a\in A_N\) に対して
+                \[\begin{align*}
+                \int |\widehat f (x)| \langle x\rangle^{-n/2} dx
+                &\geq |\int\sum_{z\in\{-N,\ldots,N\}^n} \frac{a(z)\chi_{z+[-\frac12,\frac12]^n}(x)}{\langle |z|+\frac{\sqrt n}{2}\rangle^{n/2}} \widehat f(x)dx|\\
+                &=|\int f(x)\sum_{z\in\{-N,\ldots,N\}^n} \frac{a(z)}{\langle |z|+\frac{\sqrt n}2\rangle^{n/2}} \widehat{\chi}_{z+[-\frac12,\frac12]^n}dx|
+                \end{align*}\]
+                であるから
+                \[\begin{align*}
+                \sup_{f\in C_0([0,1]^n),\|f\|_\infty =1}\int |\widehat f (x)| \langle x\rangle^{-n/2} dx
+                &\geq\sup_{f\in C_0([0,1]^n)\text{ with }\|f\|_\infty =1,\ N\in\N,\ a\in A_N}|\int f(x)\sum_{z\in\{-N,\ldots,N\}^n} \frac{a(z)}{\langle |z|+\frac{\sqrt n}{2}\rangle^{n/2}} \widehat{\chi}_{z+[-\frac12,\frac12]^n}dx|\\
+                &=\sup_{N\in\N,\ a\in A_N}\|\chi_{[0,1]^n}\sum_{z\in\{-N,\ldots,N\}^n} \frac{a(z)}{\langle |z|+\frac{\sqrt n}{2}\rangle^{n/2}} \widehat{\chi}_{z+[-\frac12,\frac12]^n}\|_1 \qquad \cdots(*)
+                \end{align*}\]
+                であり, \((*)=\infty\) を示せば十分.<br>
+                (III)ここで \(N\in\N\) をとり, \((\w_z)_{z\in\{-N,\ldots,N\}^n}\) を \((2N+1)^n\) 個の独立な確率変数の族であって, \(-1,1\) を \(1/2\) ずつの確率でとるものとする.
+                このとき \(\|\chi_{[0,1]^n}\sum_{z\in\{-N,\ldots,N\}^n} \frac{\w_z}{\langle |z|+\frac{\sqrt n}{2}\rangle^{n/2}} \widehat{\chi}_{z+[-\frac12,\frac12]^n}\|_1\) の期待値は
+                \[\begin{align}
+                \E[\|\chi_{[0,1]^n}\sum_{z\in\{-N,\ldots,N\}^n} \frac{\w_z}{\langle |z|+\frac{\sqrt n}{2}\rangle^{n/2}} \widehat{\chi}_{z+[-\frac12,\frac12]^n}\|_1]
+                &=\|\E\left[| \chi_{[0,1]^n}\sum_{z\in\{-N,\ldots,N\}^n}  \frac{\w_z}{\langle |z|+\frac{\sqrt n}{2}\rangle^{n/2}} \widehat{\chi}_{z+[-\frac12,\frac12]^n} |\right]  \|_1\quad(\text{Fubini's thm})\\
+                &\approx\| \chi_{[0,1]^n}\sqrt{  \sum_{z\in\{-N,\ldots,N\}^n}  \frac{|\widehat{\chi}_{z+[-\frac12,\frac12]^n}|^2}{\langle |z|+\frac{\sqrt n}{2}\rangle^n}    }\|_1\quad(\text{Khinchine's inequality})\\
+                &=\| \chi_{[0,1^n}\cdot\widehat{\chi}_{[-\frac12,\frac12]^n} \sqrt{\sum_{z\in\{-N,\ldots,N\}^n}  \frac{1}{\langle |z|+\frac{\sqrt n}{2}\rangle^n}}\|_1\\
+                &\approx_n\|\chi_{[0,1]^n}\widehat{\chi}_{[-\frac12,\frac12]^n}\|_1\sqrt{\log N}
+                \approx_n\sqrt{\log N}.
+                \end{align}\]
+                前回同様, 以上で示せている.\(\qed\)
+            </p>
+        </div>
+        <div>
             <h3>2026年9月10日（木）</h3>
             <p class="article-card" data-tags="daily smallTalk">
                 昨日のニンテンドーダイレクトにてなんと、妖怪ウォッチ2のリメイクである、<a href="https://www.youkai-watch.jp/yw2-hadou/" target="_blank">『妖怪ウォッチ2 覇道』の発売が決定した</a>ことが明かされた！
@@ -57,11 +94,11 @@
                 \[\begin{align}
                 \E[\|\chi_{[0,1]}\sum_{n=1}^N \frac{\w_n}{\langle n+1\rangle^{1/2}} \widehat{\chi_{[n,n+1]}}\|_1]
                 &=\|\E\left[| \chi_{[0,1]}\sum_{n=1}^N \frac{\w_n}{\langle n+1\rangle^{1/2}} \widehat{\chi_{[n,n+1]}} |\right]  \|_1\quad(\text{Fubini's thm})\\
-                &\simeq\| \chi_{[0,1]}\sqrt{\sum_{n=1}^N \frac{\widehat{|\chi_{[n,n+1]}}|^2}{\langle n+1\rangle}}  \|_1\quad(\text{Khinchine's inequality})\\
+                &\approx| \chi_{[0,1]}\sqrt{\sum_{n=1}^N \frac{\widehat{|\chi_{[n,n+1]}}|^2}{\langle n+1\rangle}}  \|_1\quad(\text{Khinchine's inequality})\\
                 &=\| \chi_{[0,1]}\cdot\widehat{\chi_{[0,1]}}\sqrt{\sum_{n=1}^N \frac{1}{\langle n+1\rangle}}\|_1\\
-                &\simeq\|\chi_{[0,1]}\widehat{\chi_{[0,1]}}\|_1\sqrt{\log N} \simeq\sqrt{\log N}
+                &\approx\|\chi_{[0,1]}\widehat{\chi_{[0,1]}}\|_1\sqrt{\log N} \approx\sqrt{\log N}
                 \end{align}\]
-                (途中の定数倍は何にも依らない, 3とか4とか書ける数で, 特に \(N\) に依らない.) 期待値が \(\sqrt{\log N}\) の定数倍以上ということは, 少なくとも \(\sqrt{\log N}\) の定数倍以上になる元があるということで, つまり
+                (途中の定数倍は何にも依らない, 3とか1/100とか書ける数で, 特に \(N\) に依らない.) 期待値が \(\sqrt{\log N}\) の定数倍以上ということは, 少なくとも \(\sqrt{\log N}\) の定数倍以上になる元があるということで, つまり
                 \((a_n)_{n=1}^N\subset \{1,-1\}\) が存在して \(\|\chi_{[0,1]}\sum_{n=1}^N \frac{a_n}{\langle n+1\rangle^{1/2}} \widehat{\chi_{[n,n+1]}}\|_1 \gtrsim\sqrt{\log N}\) ということであるから, 示せた.\(\qed\)
             </p>
         </div>

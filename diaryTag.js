@@ -50,9 +50,11 @@ document.addEventListener('DOMContentLoaded', () => {
   articles.forEach(article => {
     // 1. data-tags の中身を取得（例: "html css"）
     const tags = article.dataset.tags.split(' ');
+    const br = document.createElement('br');
+    article.appendChild(br);
 
     // 2. タグごとに span 要素を作ってみ出しに追加
-    //span !? なんぞやそれ
+    //span !? divみたいなものらしい。ていうかdivも数学用語だな。
     tags.forEach(tag => {
       const badge = document.createElement('span');
       badge.classList.add('tag-badge');
