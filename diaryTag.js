@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 1. data-tags の中身を取得（例: "html css"）
     const tags = article.dataset.tags.split(' ');
     const br = document.createElement('br');
-    article.appendChild(br);
+    article.prepend(br);
 
     // 2. タグごとに span 要素を作ってみ出しに追加
     //span !? divみたいなものらしい。ていうかdivも数学用語だな。
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const badge = document.createElement('span');
       badge.classList.add('tag-badge');
       badge.textContent = "#" + tag;
-      article.appendChild(badge);
+      article.prepend(badge);
     });
   });
 });
