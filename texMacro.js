@@ -28,6 +28,7 @@ window.MathJax = {
         F: "{\\mathcal{F}}",
 
         a: "{\\alpha}",
+        b: "{\\beta}",
         d: "{\\delta}",
         e: "{\\varepsilon}",
         w: "{\\omega}",
