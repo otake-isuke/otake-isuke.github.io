@@ -93,7 +93,7 @@ main, .panel {
 
 
 /* 日記のタグ用 */
-.filter-buttons .filter-btn {
+.filter-buttons .filter-btn, .year-buttons button, .month-buttons button {
     padding: 6px 12px;
     margin-right: 4px;
     border: 1px solid #ccc;
@@ -101,7 +101,7 @@ main, .panel {
     cursor: pointer;
     border-radius: 4px;
 }
-.filter-buttons .filter-btn.active {
+.filter-buttons .filter-btn.active, .year-buttons .active, .month-buttons .active {
     background: #007bff;
     color: #fff;
     border-color: #007bff;
@@ -119,3 +119,4 @@ main, .panel {
 .hidden {
     display: none;
 }
+/*日記の日付用*/

@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const br = document.createElement('br');
     article.prepend(br);
 
-    // 2. タグごとに span 要素を作ってみ出しに追加
+    // 2. タグごとに span 要素を作って見出しに追加
     //span !? divみたいなものらしい。ていうかdivも数学用語だな。
     tags.forEach(tag => {
       const badge = document.createElement('span');
@@ -62,4 +62,116 @@ document.addEventListener('DOMContentLoaded', () => {
       article.prepend(badge);
     });
   });
+});
+
+//日付表示
+const yearButtons = document.querySelectorAll('#diary .year-buttons button');
+const monthButtons = document.querySelectorAll('#diary .month-buttons button');
+let selectedYear = "";
+let selectedMonth = "";
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const currentDate = new Date();
+    const currentYear = currentDate.getFullYear();
+    const currentMonth = currentDate.getMonth();
+
+    selectedYear = currentYear;
+    selectedMonth = currentMonth;
+    
+    yearButtons.forEach(btn => {
+        if (btn.textContent==currentYear) {
+            btn.classList.add('active')
+        }
+    });
+    monthButtons.forEach(btn => {
+        if (parseInt(btn.textContent)==parseInt(currentMonth)+1) {
+            btn.classList.add('active')
+        }
+    });
+    const years = document.querySelectorAll('#diary .year');
+    years.forEach(year => {
+        if (!(year.dataset.year == selectedYear)) {
+            year.classList.add('hidden')
+        } else {
+            const months = year.querySelectorAll('.month');
+            months.forEach(month => {
+                if (!(parseInt(month.dataset.month) == parseInt(selectedMonth)+1)) {
+                    month.classList.add('hidden')
+                } else {
+                    const days = month.querySelectorAll('.day');
+                    days.forEach(day => {
+                        const date = document.createElement('h3');
+                        date.textContent = year.dataset.year +"年"+ month.dataset.month+"月" + day.dataset.day+"日";
+                        day.prepend(date);
+                    })
+                }
+            }
+            );
+        }
+    });
+});
+
+//ボタンの見た目
+yearButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        selectedYear = btn.textContent;
+        yearButtons.forEach(button => button.classList.remove('active'));
+        btn.classList.add('active');
+        
+        const years = document.querySelectorAll('#diary .year');
+        years.forEach(year => {year.classList.remove('hidden')});
+        years.forEach(year => {
+            if (!(year.dataset.year == selectedYear)) {
+                year.classList.add('hidden')
+            } else {
+                const months = year.querySelectorAll('.month');
+                months.forEach(month => month.classList.remove('hidden'));
+                months.forEach(month => {
+                    if (!(month.dataset.month == selectedMonth)) {
+                        month.classList.add('hidden')
+                    } else {
+                    const days = month.querySelectorAll('.day');
+                    days.forEach(day => {
+                        const date = document.createElement('h3');
+                        date.textContent = year.dataset.year +"年"+ month.dataset.month+"月" + day.dataset.day+"日";
+                        day.prepend(date);
+                    })
+                }
+                }
+                );
+            } 
+        });
+    })
+});
+monthButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        selectedMonth = btn.textContent;
+        monthButtons.forEach(button => button.classList.remove('active'));
+        btn.classList.add('active');
+        
+        const years = document.querySelectorAll('#diary .year');
+        years.forEach(year => {year.classList.remove('hidden')});
+        years.forEach(year => {
+            if (!(year.dataset.year == selectedYear)) {
+                year.classList.add('hidden')
+            } else {
+                const months = year.querySelectorAll('.month');
+                months.forEach(month => month.classList.remove('hidden'));
+                months.forEach(month => {
+                    if (!(month.dataset.month == selectedMonth)) {
+                        month.classList.add('hidden')
+                    } else {
+                    const days = month.querySelectorAll('.day');
+                    days.forEach(day => {
+                        const date = document.createElement('h3');
+                        date.textContent = year.dataset.year +"年"+ month.dataset.month+"月" + day.dataset.day+"日";
+                        day.prepend(date);
+                    })
+                }
+                }
+                );
+            }
+        });
+    })
 });
