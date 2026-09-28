@@ -70,11 +70,29 @@ const monthButtons = document.querySelectorAll('#diary .month-buttons button');
 let selectedYear = "";
 let selectedMonth = "";
 
+const changeDisplay = (selectedYear, selectedMonth) => {
+    const years = document.querySelectorAll('#diary .year');
+    years.forEach(year => {year.classList.remove('hidden')});
+    years.forEach(year => {
+        if (!(year.dataset.year == selectedYear)) {
+            year.classList.add('hidden')
+        } else {
+            const months = year.querySelectorAll('.month');
+            months.forEach(month => month.classList.remove('hidden'));
+            months.forEach(month => {
+                if (!(month.dataset.month == selectedMonth)) {
+                    month.classList.add('hidden')
+                }
+            }
+            );
+        }
+    });
+};
 
 document.addEventListener('DOMContentLoaded', () => {
     const currentDate = new Date();
     const currentYear = currentDate.getFullYear();
-    const currentMonth = currentDate.getMonth();
+    const currentMonth = String(parseInt(currentDate.getMonth())+1);
 
     selectedYear = currentYear;
     selectedMonth = currentMonth;
@@ -85,31 +103,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
     monthButtons.forEach(btn => {
-        if (parseInt(btn.textContent)==parseInt(currentMonth)+1) {
+        if (btn.textContent==currentMonth) {
             btn.classList.add('active')
         }
     });
-    const years = document.querySelectorAll('#diary .year');
-    years.forEach(year => {
-        if (!(year.dataset.year == selectedYear)) {
-            year.classList.add('hidden')
-        } else {
-            const months = year.querySelectorAll('.month');
-            months.forEach(month => {
-                if (!(parseInt(month.dataset.month) == parseInt(selectedMonth)+1)) {
-                    month.classList.add('hidden')
-                } else {
-                    const days = month.querySelectorAll('.day');
-                    days.forEach(day => {
-                        const date = document.createElement('h3');
-                        date.textContent = year.dataset.year +"年"+ month.dataset.month+"月" + day.dataset.day+"日";
-                        day.prepend(date);
-                    })
-                }
-            }
-            );
-        }
-    });
+    changeDisplay(selectedYear,selectedMonth);
 });
 
 //ボタンの見た目
@@ -119,29 +117,7 @@ yearButtons.forEach(btn => {
         yearButtons.forEach(button => button.classList.remove('active'));
         btn.classList.add('active');
         
-        const years = document.querySelectorAll('#diary .year');
-        years.forEach(year => {year.classList.remove('hidden')});
-        years.forEach(year => {
-            if (!(year.dataset.year == selectedYear)) {
-                year.classList.add('hidden')
-            } else {
-                const months = year.querySelectorAll('.month');
-                months.forEach(month => month.classList.remove('hidden'));
-                months.forEach(month => {
-                    if (!(month.dataset.month == selectedMonth)) {
-                        month.classList.add('hidden')
-                    } else {
-                    const days = month.querySelectorAll('.day');
-                    days.forEach(day => {
-                        const date = document.createElement('h3');
-                        date.textContent = year.dataset.year +"年"+ month.dataset.month+"月" + day.dataset.day+"日";
-                        day.prepend(date);
-                    })
-                }
-                }
-                );
-            } 
-        });
+        changeDisplay(selectedYear,selectedMonth);
     })
 });
 monthButtons.forEach(btn => {
@@ -150,28 +126,6 @@ monthButtons.forEach(btn => {
         monthButtons.forEach(button => button.classList.remove('active'));
         btn.classList.add('active');
         
-        const years = document.querySelectorAll('#diary .year');
-        years.forEach(year => {year.classList.remove('hidden')});
-        years.forEach(year => {
-            if (!(year.dataset.year == selectedYear)) {
-                year.classList.add('hidden')
-            } else {
-                const months = year.querySelectorAll('.month');
-                months.forEach(month => month.classList.remove('hidden'));
-                months.forEach(month => {
-                    if (!(month.dataset.month == selectedMonth)) {
-                        month.classList.add('hidden')
-                    } else {
-                    const days = month.querySelectorAll('.day');
-                    days.forEach(day => {
-                        const date = document.createElement('h3');
-                        date.textContent = year.dataset.year +"年"+ month.dataset.month+"月" + day.dataset.day+"日";
-                        day.prepend(date);
-                    })
-                }
-                }
-                );
-            }
-        });
+        changeDisplay(selectedYear,selectedMonth);
     })
 });
