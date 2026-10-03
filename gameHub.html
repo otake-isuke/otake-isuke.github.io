@@ -24,8 +24,9 @@
             <li><a href="https://zw9cx.github.io/" target="_blank">Diam</a></li>
             <li><a href="https://harukinaito.github.io/diary.html" target="_blank">harukinaito</a></li>
         </ul>
-    <div class="panel withBgImage">
     <h2>誤植・誤りのメモ(仮置場)</h2>
+    <div class="panel withBgImage">
+    <h3>Pertti Mattila, Fourier Analysis and Hausdorff Dimension</h3>
     <p>
         p20, Example 2.9 (ii); rectifiable curve \(\Gamma\) に、例えば \(C^1\) の仮定が必要.<br>
         p22, Theorem 2.13; 主張に \(p \leq q\) の仮定が必要.<br>
@@ -40,6 +41,7 @@
         p51, equation (3.66); \(Q_n=[0,1]^n\) として " if \(\mu,\nu\in\M(Q_n)\), then \(\widehat\mu(z)=\widehat\nu(z)\) for all \(z\in\Z^n\) implies \(\mu=\nu\) " とあるが,
             \(\mu=\delta_1,\ \nu=\delta_0\) が反例. 周期化 \(\M([0,1]^n)\to\M(\R^n),\mu\mapsto\sum_{z\in\Z^n}\mu(\cdot - z)\) が単射でないのが原因.<br>
         p52-53, Theorem 3.21; 証明で \(\int(g_\e*f)f=\sum_{z\in\Z^n}\widehat{g_\e}(z)|\widehat{f}(z)|^2\) とあるが, これは左辺の \(g_e\) を周期化した関数 \(G_\e=\sum_{z\in\Z^n}g_\e(\cdot - z)\) にしなくては成り立たないので, 証明にやや修正が必要.<br>
+        p57, Theorem 4.3; \(A\) が Lebesgue 可測という条件を課しているが, より強く Borel とするべきである. 実際 \(V\subset[0,1]\) をVitali(ヴィタリ)集合として \(A=V\times\{0\}^{n-1}\) とすると \(\sigma^{n-1}\)-a.e. \(e\in S^{n-1}\) に対して, \(\L^1(P_e(A))\) はill-defなので, 主張が意味をなさなくなってしまう.<br>
         p59, equation (4.7); " \(\d(\mu_i)\to\d(\mu)\) weakly if \(\mu_i\to\mu\) weakly " とあるが, これは誤りで, たとえば「 \(\mu_i\) たちが同じコンパクト台を持つ」などの条件が要る.<br>
         p76, equation (5.7); \(n-1\) 次球面 \(S^{n-1}\) が誤って \(\S^{n-1}\) と書かれている. その上の \(e\in\S^{n-1}\) も同様.<br>
         p77, line 3; \[\int_{\R^n}|\widehat\mu(x)|^2(1+|x|)^{t-1-\tau}dx\lesssim I_s(\mu) < \infty\]
