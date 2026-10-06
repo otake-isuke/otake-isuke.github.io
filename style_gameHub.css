@@ -15,8 +15,8 @@
     position: absolute;
     left: 0px;
     top: 0px;
-    background-image: url('images/bg.png'); /* 広い背景画像 */
-    background-size: 500px 400px;    /* 画像をタイル状に並べるサイズ */
+    background-image: url('images/20261006.png'); /* 広い背景画像 */
+    background-size: 500px;    /* 画像をタイル状に並べるサイズ */
     background-repeat: repeat;       /* マップ全体に敷き詰める */
 }
 
