@@ -49,9 +49,9 @@
                         しかし \(\dim (E\times [0,1]) = \dim E +\dim [0,1] < n+1\) で, これは \(n+1\) 次元におけるKakeya予想に矛盾する. \(\qed\)
                     </p>
                     <p class="article-card" data-tags="math">
-                        ところで \(\dim (E\times [0,1]) = \dim E +\dim [0,1]\) と言ったが, そしてこれは任意の \(E\subset\R^n\) で成り立つのだが, 直感に反することに, \(A\subset\R^n, B\subset\R^m\)に対して \(\dim (A\times B)=\dim A +\dim B\) は必ずしも成り立たない.
+                        ところで \(\dim (E\times [0,1]) = \dim E +\dim [0,1]\) と言ったが, そしてこれは任意の \(\varnothing\ne E\subset\R^n\) で成り立つのだが, 直感に反することに, \(\varnothing\ne A\subset\R^n, \varnothing\ne B\subset\R^m\)に対して \(\dim (A\times B)=\dim A +\dim B\) は必ずしも成り立たない.
                         (たしか \(n=m=1\), \(A,B\): Borelのときでも反例がある.) \(A,B\) がBorelなら \(\dim (A\times B)\geq\dim A +\dim B\) は成り立つのだが, これの証明は(Frostmanの補題を認めれば簡単だが)そんなに簡単ではない.
-                        しかし上で書いたように \(B=[0,1]\) のときは任意の \(A\subset\R^n\):Borelに対し等号が成り立つ. これはほぼby defで従うからちょっとやってみよう.
+                        しかし上で書いたように \(B=[0,1]\) のときは任意の \(\varnothing\ne A\subset\R^n\):Borelに対し等号が成り立つ. これはほぼby defで従うからちょっとやってみよう.
                         \(\dim A < s\) なる \(s\) を任意にとる. 任意に \(\e > 0\) をとる. 今 \(A\) の被覆 \((E_j)_{j\in\N}\) が存在して \(\displaystyle\sum_j d(E_j)^s < \e\) となる.
                         ここで \(j\in\N\), \(k=1,\ldots,\lfloor 1/d(E_j)\rfloor+1\) に対して \(C_{j,k}=E_j\times [(k-1)d(E_j),kd(E_j)]\) とおく.
                         すると \((C_{j,k})\) は \(A\times [0,1]\) の被覆で, \(\displaystyle \sum_{j,k}d(C_{j,k})^{s+1}\approx\sum_j\sum_{k=1}^{\lfloor 1/d(E_j)\rfloor+1} d(E_j)^{s+1}
