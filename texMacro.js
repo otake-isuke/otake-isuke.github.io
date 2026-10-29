@@ -34,6 +34,8 @@ window.MathJax = {
         w: "{\\omega}",
         wwidehat: ["{\\widehat{\\, #1 \\ }}", 1],
         wwidetilde: ["{\\widetilde{\\, #1 \\ }}", 1],
+
+        coloneq: "{:=}",
         
         // 引数を取る場合：\newcommand{\vector}[1]{\mathbf{#1}} と同じ
         // [マクロ名, 定義, 引数の数] の順に指定します
