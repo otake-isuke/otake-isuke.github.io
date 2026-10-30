@@ -38,9 +38,32 @@
         <div class="year" data-year="2026">
             <div class="month" data-month="10">
                 <div>
+                    <h3>2026年10月30日（金）</h3>
+                    <p class="article-card" data-tags="math question">
+                        問題2（再掲）：
+                        \(0 < s < n\), \(E\subset\R^n\): Borel, \(0 < H^s(E) < \infty\) とする. このとき
+                        \(S(E)=\{x\in\R^n:\limsup_{r\to 0}r^{-s}H^s(E\cap B(x,r))=\infty \}\) とおくと, \(H^s(S(E))=0\) であることを示せ.<br>
+                        解答：ヴィタリの被覆補題（5r被覆定理ともよばれる）を用いる.<br>
+                        \(M>1000\) を任意にとる. \(\mathscr C=\{B(x,r): x\in\R^n,\ r>0,\ H^s(E\cap B(x,r)) > Mr^s\}\) とおく.
+                        すると \(\sup \{d(B):B\in\mathscr C\} < \infty\) であるから, ヴィタリの被覆補題から \((B(x_j,r_j))_{j\in\N}\subset\mathscr C\) が存在して,
+                        \((B(x_j,r_j))_j\) は互いに素で, \[\bigcup\mathscr C\subset\bigcup_{j\in\N}B(x_j,5r_j)\]
+                        となる（ヴィタリの被覆補題と言ったら普通はこれよりも強い主張がされるが, 今は使わないので書かない）. ここで \(\mathscr C\) は明らかに \(S(E)\) の被覆になっているので, \(\{B(x_j,5r_j)\}_j\) も\(S(E)\) を被覆していて,
+                        \[\begin{align*}
+                        H^s_\infty(S(E))&\leq\sum_{j=1}^\infty d(B(x_j,5r_j))^s\\
+                        &=\sum_{j=1}^\infty 5^s d(B(x_j,r_j))\\
+                        &\leq\sum_{j=1}^\infty 10^s M^{-1} H^s(E\cap B(x_j,r_j))\\
+                        &\leq 10^s M^{-1} H^s(E)
+                        \end{align*}\]
+                        であり, 今 \(M>1000\) は任意だから \(H^s_\infty(S(E))=0\), \(H^s(S(E))=0\).
+                    </p>
+                    <p>
+                        問題3：では, 「ある \(0 < t < s\) があって, \(E\subset\R^n\):Borel, \(0 < H^s(E) < \infty\) ならば \(\dim S(E) \leq t\) 」といったような上からの評価はあるだろうか？  （\(H^s(E)\in(0,\infty),\ S(E)=\varnothing\) となるような
+                        \(E\):Borelは存在する（むしろ \(S(E)\ne\varnothing\) となる \(E\) を探すほうが大変なくらいである）ということから, 下からの評価が望めないことは直ちに分かるが......）
+                </div>
+                <div>
                     <h3>2026年10月29日（木）</h3>
                     <p class="article-card" data-tags="math question">
-                        問題（再掲）：<br>
+                        問題1（再掲）：<br>
                         \(0 < s < n\), \(E\subset\R^n\): Borel, \(0 < H^s(E) < \infty\) とする. このとき \(\mu=H^s|_E\) とおくと,
                         \(\mu(B(x,r))\lesssim r^s\) だろうか？<br>
                         解答：No.<br>
@@ -51,7 +74,7 @@
                     </p>
                     <p class="article-card" data-tags="math question">
                         次の問題が自然に出てくる.<br>
-                        問題：<br>
+                        問題2：<br>
                         \(0 < s < n\), \(E\subset\R^n\): Borel, \(0 < H^s(E) < \infty\) とする. このとき
                         \(S(E)=\{x\in\R^n:\limsup_{r\to 0}r^{-s}H^s(E\cap B(x,r))=\infty \}\) とおくと, \(H^s(S(E))=0\) であることを示せ.
                     </p>
@@ -59,7 +82,7 @@
                 <div>
                     <h3>2026年10月28日（水）</h3>
                     <p class="article-card" data-tags="math question">
-                        問題：<br>
+                        問題1：<br>
                         \(0 < s < n\), \(E\subset\R^n\): Borel, \(0 < H^s(E) < \infty\) とする. このとき \(\mu=H^s|_E\) とおくと,
                         \(\mu(B(x,r))\lesssim r^s\) だろうか？
                     </p>
