@@ -36,6 +36,33 @@
             <button>9</button><button>10</button><button>11</button><button>12</button>月
         </div>
         <div class="year" data-year="2026">
+            <div class="month" data-month="11">
+                <div>
+                    <h3>2026年11月1日（日）</h3>
+                    <p class="article-card" data-tags="math question">
+                        問題3（再掲）：
+                        「ある \(0 < t < s\) があって, \(E\subset\R^n\):Borel, \(0 < H^s(E) < \infty\) ならば \(\dim S(E) \leq t\) 」といったような上からの評価はあるだろうか？<br>
+                        答え：ない. \(0 \leq s < n\) ならば, \(\max\{\dim S(E):E\subset\R^n\text{:Borel},\ 0 < H^s(E) < \infty\}=s\) である. 以下これを \(n=1\) のとき示そう. この方法は全く同様に一般の \(n\) に拡張される.<br>
+                        Claim 1：\(0 < t < s < 1\) ならば, \(E\subset\R\):Borel が存在して \(0 < H^s(E) < \infty\),  \(\dim S(E) \geq t\) となる.<br>
+                        Claim 2： \(0 < s < 1\) ならば, \(E\subset\R\):Borel が存在して \(0 < H^s(E) < \infty\), \(\dim S(E) = s\) となる.<br>
+                        まずClaim 1からClaim 2が従うことを示そう. 各 \(j\in\N\) に対して \(E_j\subset\R\): Borelを, \(H^s(E_j)=2^{-j}\), \(\dim E_j\geq s- 1/j\) となるようにとる.
+                        \(E=\bigcup_j E_j\) とすると \(0 < H^s(E) < \infty\) で, \(S(E_j)\subset S(E)\) だから \(s\geq\dim S(E)\geq s-1/j\), \(\dim S(E)=s\) となる.\(\qed\)<br><br>
+                        よって, Claim 1を示せばよい. \(0 < t < s < 1\) をとる. \[t=\frac{\log 2}{\log(1/d)}\]となる \(0 < d < 1/2\) がとれる. \(k\in\N\) と \(a\in 2^k=Map(\{0,\ldots,k-1\},\{0,1\})\) に対して,
+                        \[\begin{align*}
+                        l_{k,a}= \sum_{j=0}^{k-1} d^j(1-d)a(j)\\
+                        I_{k,a}=[l_{k,a},l_{k,a}+d^k]\\
+                        C_d=\bigcap_{k\in\N}\bigcup_{a\in 2^k}I_{k,a}
+                        \end{align*} \]
+                        とおく. \(t < u < s\) なる \(u\) をひとつとる. \(k\in\N\) に対して \(E_k\subset[0,d^k]\) を, \(H^s(E_k)=d^{ku}\) となるようにとることができる.
+                        \[E=\bigcup_{k\in\N} \bigcup_{a\in 2^k}(l_{k,a}+E_k)\]とおく. すると \(0 < 2d^u < 2d^t = 1\) より
+                        \[0 < H^s(E) \leq\sum_{k\in\N}2^k d^{ku} < \infty\] となる. また各 \(x\in C_d\) と \(k\in\N\) に対して, \(r=d^k\) とおくと, \(a\in 2^k\) が存在して \(x\in I_{k,a}\) であるから
+                        \(l_{k,a}+E_k\subset I_{k,a}\subset B(x,r)\) で,
+                        \[H^s(E\cap B(x,r)) \geq H^s(l_{k,a}+E_k)=r^u=d^{k(u-s)}r^s \]
+                        で, \(k\to\infty\) で \(k(u-s)\to-\infty\), \(d^{k(u-s)}\to\infty\) となるから, \(x\in S(E)\), \(C_d\subset S(E)\).
+                        よって \(\dim S(E)\geq \dim C_d=t\).\(\qed\)
+                    </p>
+                </div>
+            </div>
             <div class="month" data-month="10">
                 <div>
                     <h3>2026年10月31日（土）</h3>
