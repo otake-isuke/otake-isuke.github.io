@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="config/style.css"> 
+<script src="config/texMacro.js"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>Frostmanの補題</title>
+</head>
+<body>
+    <header>
+        <h1>KsKのホームページ</h1>
+        <nav><ul>
+                <li><a href="../index.html">ホーム</a></li>
+                <li><a href="index.html">記事の一覧</a></li>
+        </ul></nav>
+    </header>
+    <main>
+        <h2>Frostmanの補題（フロストマンの補題）</h2>
+    </main>
+    <div class="panel claim">
+        <h3>定理（Frostmanの補題）</h3>
+            \(n\in\N\), \(s > 0\), \(A\subset\R^n\) として, \(A\) は<a href="?.html">解析集合</a>であるとする. このとき次は同値.
+            \[\begin{align*}
+                & (1) \quad \dim A\geq s . \\
+                & (2) \quad \mu \in\M(A)\text{ が存在して},\ \text{任意の }x\in\R^n, r>0\text{ に対して } \mu(B(x,r))\leq r^s. 
+            \end{align*}\]
+    </div>
+    <div class="panel remark">
+        見慣れない記号も多いと思うのでいくつか注意を.
+        <ul>
+        <li>
+            \(\dim A\) はここでは \(A\) の<a href="?.html">ハウスドルフ次元</a>のこととします.
+        </li>
+        <li>
+            \[\begin{align*}
+            \M(A)
+            =\{\mu: \mu\text{ は }\R^n\text{ 上の有限Borel測度で, }\supp\mu\subset A\text{: cpt},\ \mu(\R^n)\ne 0\}
+            \end{align*}\]
+            とします. ただし \(\R^n\) の有限Borel測度 \(\mu\) に対してその台 \(\supp\mu\) は, 
+            \[\supp\mu = \{x\in\R^n: \text{任意の }r>0\text{ に対して } \mu(B(x,r))>0\}\]
+            という集合として定義します. これは閉集合になることに注意してください. 超関数を知っている方は, \(\mu\) の台とは \(\varphi\mapsto\int_{\R^n} \varphi\,d\mu\) という超関数の台であると思っても構いません（簡単な議論から同値な定義であることが分かります）.
+        </li>
+        <li>
+            \(B(x,r)=\{y\in\R^n: |x-y| < r\}\) とします.
+        </li>
+        <li>
+            有限Borel測度 \(\mu\) とは, \(\R^n\) のBorel集合全体上の非負値関数であって, 測度の公理をみたし, \(\mu(\R^n) < \infty\) となるものとします.
+        </li>
+        <li>
+            解析集合についてはリンク先の記事に詳細は任せますが, まずBorel集合は解析集合であることを知っていればよいでしょう.
+        </li>
+        </ul>
+    </div>
+    <div class="panel proof">
+        ああ
+    </div>
+<script src="diaryTag.js"></script>
+</body>
+</html>
