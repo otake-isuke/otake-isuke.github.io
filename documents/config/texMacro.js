@@ -15,6 +15,8 @@ window.MathJax = {
         N: "{\\mathbb{N}}",
         
         dis: "{\\displaystyle}",
+        dist: "{\\mathrm{dist} }",
+        diam: "{\\mathrm{diam} }",
         bra: ["{\\left(#1\\right)}",1],
         qed: "{\\qquad\\qquad\\square}",
         Re: "{\\mathrm{Re}\\ }",

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ja">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="config/style.css"> 
+<script src="config/texMacro.js"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>Hausdorff測度・Hausdorff次元の定義とその基本性質</title>
+</head>
+<body>
+    <header>
+        <h1>KsKのホームページ</h1>
+        <nav><ul>
+                <li><a href="../index.html">ホーム</a></li>
+                <li><a href="index.html">記事の一覧</a></li>
+        </ul></nav>
+    </header>
+    <div class="panel">
+        <h2>Hausdorff測度（ハウスドルフ測度）の定義とその基本性質</h2>
+    </div>
+    <div class="panel claim">
+        <h3>定義1（Hausdorff測度）</h3>
+            \((X,\dist)\) を距離空間, \(s \geq 0\) とする. このとき次で \(X\) の \(s\) 次元Hausdorff測度 \(H^s(X)\) を定義する. まず \( \d\in(0,\infty] \) に対して
+            \[\begin{align*}
+                H_\d^s(X)=\inf\{\sum_{A\in\A}d(A)^s: \A\subset\mathscr P(X),\ \#\A\leq\#\N,\ X\subset\bigcup \A,\ \text{任意の }A\in\A\text{ に対して }d(A) \leq \d \}
+            \end{align*}\]
+            と定め, \(H^s(X)\) を
+            \[\begin{align*}
+                H^s(X)=\sup_{\d>0} H_\d^s(X)
+            \end{align*}\]
+            と定義する.
+    </div>
+    <div class="panel remark">
+        いくつか注意を.
+        <ul>
+        <li>
+            定義からすぐに \(H^s(X)=\lim_{\d\to 0} H_\d^s(X)\) となることが分かります.
+        </li>
+        <li>
+            \(d(A)\) は集合 \(A\) の直径（diameter）を表します. つまり,
+            \[d(A)=\sup\{\dist(x,y): x,y\in A\}\]
+            です. \(d(\varnothing)=0\) とします. \(s=0\) のときは \(0^s=1\) とします. \(H^0(X)=\# X\) （要素の個数）となります.
+        </li>
+        </ul>
+    </div>
+    <div class="panel claim">
+        <h3>命題2</h3>
+        \(s\geq 0\), \(X\): 距離空間に対して,
+        \[H^s(X)=0\iff H^s_\infty(X)=0\]
+    </div>
+    <div class="panel proof">
+        \((\Rightarrow)\)<br>
+        任意の \(\d > 0\) に対して \(0\leq H^s_\infty(X)\leq H^s_\d(X)\leq H^s(X)=0\) であるから自明.<br>
+        \((\Leftarrow)\)
+        <p>
+            \(s=0\) なら \(H^s_\infty(X)=0\) は \(X=\varnothing\) を意味するから明らかに \(H^s(X)=0\) となる. よって以下 \(s>0\) とする.
+        </p>
+        <p>
+            \(\d > 0\) をとる. \(\d^s > \e > 0\) をとる. \(H^s_\d(X) \leq \e\) を示せばよい（ \(\d^s > \e>0\) が任意だから \(H^s_\d(X)=0\) で, \(\d > 0\) が任意だから \(H^s(X)=0\) となる）.
+        </p>
+        <p>
+            今 \(H^s_\infty(X)=0\) だから, 高々可算な \(\A\subset\mathscr P(X)\) が存在して \(X\subset\bigcup \A\) かつ \(\sum_{A\in\A}d(A)^s < \e\) をみたす. このとき各 \(A\in\A\) に対して \(d(A)^s \leq \sum_{B\in\A}d(B)^s < \e < \d^s\) だから \(d(A) < \d\) である.
+            よって \(H^s_\d(X)\leq\sum_{A\in\A}d(A)^s < \e\).
+        </p>
+    </div>
+    <div class="panel remark">
+        いま定義から明らかに
+        \[\begin{align*}
+            H^s_\d(X) \leq \inf\{\sum_{A\in\A}d(A)^s: \A\subset\mathscr P(X)\text{ :高々可算},\ X\subset\bigcup \A,\ \forall A\in\A,d(A) \leq \d,A\text{ : 有開閉} \}
+        \end{align*}\]
+        ですが, 実際は等号が成り立ちます. なぜなら直径は閉包をとっても変わらない, つまり各 \(A\subset X\) に対して \(d(A)=d(\overline A)\) だからです. よってHausdorff測度の定義でとる被覆は有開閉とかBorelとかに制限しても変わらないことが分かります.
+        同様の理由から被覆を開被覆に制限しても, それで定義される \(H^s(X)\) は同じ値になります（一般に取った可算な被覆の \(j\) 番目の集合を, それの \(\e/2^j\) 開近傍で置き換えればよい）.
+    </div>
+    <div class="panel claim">
+        <h3>命題3（Hausdorff次元の定義のための命題）</h3>
+        距離空間 \(X\) に対してただ１つ \(s_0\in[0,\infty]\) が存在して, 任意の \(s\in [0,\infty)\) に対して, \(s < s_0\) ならば \(H^s(X)=\infty\), \(s > s_0\) ならば \(H^s(X)=0\) となる.
+    </div>
+    <div class="panel proof">
+        明らか.
+    </div>
+    <div class="panel claim">
+        <h3>定義4（Hausdorff次元）</h3>
+        距離空間 \(X\) に対してただ１つ存在する上の \(s_0\) を \(X\) のHausdorff次元と定義し \(\dim_H X\) で表す. 誤解の余地が少ない時は単に \(\dim X\) と書く.
+    </div>
+    <div class="panel claim">
+        <h3>命題5</h3>
+        \[\dim X=\inf\{s\geq 0 : H^s_\infty(X)=0\}\]
+    </div>
+    <div class="panel proof">
+        命題2とHausdorff次元の定義から明らか.
+    </div>
+    <div class="panel claim">
+        <h3>定義6（Hausdorff測度）</h3>
+        距離空間 \(X\) 上の \(s\) 次元Hausdorff外測度 \(H^s\colon \mathscr P(X)\to[0,\infty]\) を, \(A\subset X\)  に対して, \(A\) を \(X\) の距離を入れた距離空間としたときの \(H^s(A)\) を対応させる関数として定義する.
+    </div>
+    <div class="panel claim">
+        <h3>定理7（Hausdorff測度）</h3>
+        上で定義した \(H^s\colon \mathscr P(X)\to[0,\infty]\) は \(X\) 上の外測度である. すなわち,
+        \[\begin{align*}
+            & (1) \quad H^s(\varnothing)=0, \\
+            & (2) \quad A\subset B\subset X\text{ のとき }H^s(A)\leq H^s(B), \\
+            & (3) \quad A_1,A_2,\ldots\subset X\text{ のとき }H^s(\bigcup_{j=1}^\infty A_j)\leq \sum_{j=1}^\infty H^s(A_j).
+        \end{align*}\]
+        またこれを \(X\) のBorel集合族 \(\mathcal B(X)\) に制限したものは測度になる. つまり,
+        \[\begin{align*}
+            & (1) \quad H^s(\varnothing)=0, \\
+            & (2) \quad \{A_j\}_{j\in\N}\subset\mathcal B(X) \text{ : 互いに素のとき }\sum_{j=1}^\infty H^s(A_j)=H^s(\bigcup_{j=1}^\infty A_j).
+        \end{align*}\]
+    </div>
+    <div class="panel remark">
+        前半の主張だけ先に示す.
+    </div>
+    <div class="panel proof">
+        明らか.
+    </div>
+    <div class="panel claim">
+        <h3>補題8（距離的外測度はBorel測度）</h3>
+        距離空間 \(X\) 上の外測度 \(\mu\colon \mathscr P(X)\to[0,\infty]\) が距離的（metric）であるとは, \(A,B\subset X\) について
+        \[\dist(A,B)>0\implies\mu(A\cup B)=\mu(A)+\mu(B)\]となることであるとする. もし \(\mu\) が距離的ならば, \(\mu\) を \(\mathcal B(X)\) に制限したものは測度になる.
+    </div>
+    <div class="panel proof">
+        明らか.
+    </div>
+</body>
+</html>

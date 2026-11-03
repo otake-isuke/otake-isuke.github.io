@@ -6,7 +6,7 @@
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <head>
     <meta charset="UTF-8">
-    <title>Frostmanの補題</title>
+    <title>Frostmanの補題とその証明</title>
 </head>
 <body>
     <header>
@@ -16,14 +16,14 @@
                 <li><a href="index.html">記事の一覧</a></li>
         </ul></nav>
     </header>
-    <main>
-        <h2>Frostmanの補題（フロストマンの補題）</h2>
-    </main>
+    <div class="panel">
+        <h2>Frostmanの補題（フロストマンの補題）とその証明</h2>
+    </div>
     <div class="panel claim">
         <h3>定理（Frostmanの補題）</h3>
-            \(n\in\N\), \(s > 0\), \(A\subset\R^n\) として, \(A\) は<a href="?.html">解析集合</a>であるとする. このとき次は同値.
+            \(n\in\N\), \(s \geq 0\), \(A\subset\R^n\) として, \(A\) は<a href="?.html">解析集合</a>であるとする. このとき次は同値.
             \[\begin{align*}
-                & (1) \quad \dim A\geq s . \\
+                & (1) \quad H^s(A) > 0 . \\
                 & (2) \quad \mu \in\M(A)\text{ が存在して},\ \text{任意の }x\in\R^n, r>0\text{ に対して } \mu(B(x,r))\leq r^s. 
             \end{align*}\]
     </div>
@@ -31,7 +31,7 @@
         見慣れない記号も多いと思うのでいくつか注意を.
         <ul>
         <li>
-            \(\dim A\) はここでは \(A\) の<a href="?.html">ハウスドルフ次元</a>のこととします.
+            \(H^s(A)\) はここでは \(A\) の \(s\) 次元<a href="HdfMeas.html">ハウスドルフ測度</a>のこととします.
         </li>
         <li>
             \[\begin{align*}
@@ -56,6 +56,5 @@
     <div class="panel proof">
         ああ
     </div>
-<script src="diaryTag.js"></script>
 </body>
 </html>

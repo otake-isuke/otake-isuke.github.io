@@ -50,9 +50,43 @@ header {
 }
 main, .panel {
     background-color: var(--article-color);
-    margin-top: 30px;
-    padding: 40px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
     width : 800px;
     max-width: 90%;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* うっすらと影をつける */
+    line-height: 2;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.panel p {
+    line-height: 2;
+}
+
+p {
+    width : 800px;
+    max-width: 90%;
+}
+.claim{margin-top: 40px;}
+.remark{margin-top: 5px;}
+.remark::before {
+  content: "【注意】";
+  display: block;
+  color: rgb(168, 0, 0);
+  font-weight: bold;
+}
+.proof{margin-top: 5px;}
+.proof::before {
+  content: "【証明】";
+  display: block;
+  color: rgb(132, 144, 255);
+  font-weight: bold;
+}
+.proof::after {
+  content: "□";
+  display: block;
+  text-align:right;
+  color: rgb(0, 0, 0);
+  text-align:right;
 }
