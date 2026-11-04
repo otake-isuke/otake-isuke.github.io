@@ -30,39 +30,38 @@
                 H^s(X)=\sup_{\d>0} H_\d^s(X)
             \end{align*}\]
             と定義する.
-    </div>
-    <div class="panel remark">
-        いくつか注意を.
-        <ul>
-        <li>
-            定義からすぐに \(H^s(X)=\lim_{\d\to 0} H_\d^s(X)\) となることが分かります.
-        </li>
-        <li>
-            \(d(A)\) は集合 \(A\) の直径（diameter）を表します. つまり,
-            \[d(A)=\sup\{\dist(x,y): x,y\in A\}\]
-            です. \(d(\varnothing)=0\) とします. \(s=0\) のときは \(0^s=1\) とします. \(H^0(X)=\# X\) （要素の個数）となります.
-        </li>
-        </ul>
+        <div class="panel remark">
+            <ul>
+            <li>
+                定義からすぐに \(H^s(X)=\lim_{\d\to 0} H_\d^s(X)\) となることが分かります.
+            </li>
+            <li>
+                \(d(A)\) は集合 \(A\) の直径（diameter）を表します. つまり,
+                \[d(A)=\sup\{\dist(x,y): x,y\in A\}\]
+                です. \(d(\varnothing)=0\) とします. \(s=0\) のときは \(0^s=1\) とします. \(H^0(X)=\# X\) （要素の個数）となります.
+            </li>
+            </ul>
+        </div>
     </div>
     <div class="panel claim">
         <h3>命題2</h3>
         \(s\geq 0\), \(X\): 距離空間に対して,
         \[H^s(X)=0\iff H^s_\infty(X)=0\]
-    </div>
-    <div class="panel proof">
-        \((\Rightarrow)\)<br>
-        任意の \(\d > 0\) に対して \(0\leq H^s_\infty(X)\leq H^s_\d(X)\leq H^s(X)=0\) であるから自明.<br>
-        \((\Leftarrow)\)
-        <p>
-            \(s=0\) なら \(H^s_\infty(X)=0\) は \(X=\varnothing\) を意味するから明らかに \(H^s(X)=0\) となる. よって以下 \(s>0\) とする.
-        </p>
-        <p>
-            \(\d > 0\) をとる. \(\d^s > \e > 0\) をとる. \(H^s_\d(X) \leq \e\) を示せばよい（ \(\d^s > \e>0\) が任意だから \(H^s_\d(X)=0\) で, \(\d > 0\) が任意だから \(H^s(X)=0\) となる）.
-        </p>
-        <p>
-            今 \(H^s_\infty(X)=0\) だから, 高々可算な \(\A\subset\mathscr P(X)\) が存在して \(X\subset\bigcup \A\) かつ \(\sum_{A\in\A}d(A)^s < \e\) をみたす. このとき各 \(A\in\A\) に対して \(d(A)^s \leq \sum_{B\in\A}d(B)^s < \e < \d^s\) だから \(d(A) < \d\) である.
-            よって \(H^s_\d(X)\leq\sum_{A\in\A}d(A)^s < \e\).
-        </p>
+        <div class="panel proof">
+            \((\Rightarrow)\)<br>
+            任意の \(\d > 0\) に対して \(0\leq H^s_\infty(X)\leq H^s_\d(X)\leq H^s(X)=0\) であるから自明.<br>
+            \((\Leftarrow)\)
+            <p>
+                \(s=0\) なら \(H^s_\infty(X)=0\) は \(X=\varnothing\) を意味するから明らかに \(H^s(X)=0\) となる. よって以下 \(s>0\) とする.
+            </p>
+            <p>
+                \(\d > 0\) をとる. \(\d^s > \e > 0\) をとる. \(H^s_\d(X) \leq \e\) を示せばよい（ \(\d^s > \e>0\) が任意だから \(H^s_\d(X)=0\) で, \(\d > 0\) が任意だから \(H^s(X)=0\) となる）.
+            </p>
+            <p>
+                今 \(H^s_\infty(X)=0\) だから, 高々可算な \(\A\subset\mathscr P(X)\) が存在して \(X\subset\bigcup \A\) かつ \(\sum_{A\in\A}d(A)^s < \e\) をみたす. このとき各 \(A\in\A\) に対して \(d(A)^s \leq \sum_{B\in\A}d(B)^s < \e < \d^s\) だから \(d(A) < \d\) である.
+                よって \(H^s_\d(X)\leq\sum_{A\in\A}d(A)^s < \e\).
+            </p>
+        </div>
     </div>
     <div class="panel remark">
         いま定義から明らかに
@@ -75,9 +74,9 @@
     <div class="panel claim">
         <h3>命題3（Hausdorff次元の定義のための命題）</h3>
         距離空間 \(X\) に対してただ１つ \(s_0\in[0,\infty]\) が存在して, 任意の \(s\in [0,\infty)\) に対して, \(s < s_0\) ならば \(H^s(X)=\infty\), \(s > s_0\) ならば \(H^s(X)=0\) となる.
-    </div>
-    <div class="panel proof">
-        明らか.
+        <div class="panel proof">
+            明らか.
+        </div>
     </div>
     <div class="panel claim">
         <h3>定義4（Hausdorff次元）</h3>
@@ -86,9 +85,9 @@
     <div class="panel claim">
         <h3>命題5</h3>
         \[\dim X=\inf\{s\geq 0 : H^s_\infty(X)=0\}\]
-    </div>
-    <div class="panel proof">
-        命題2とHausdorff次元の定義から明らか.
+        <div class="panel proof">
+            命題2とHausdorff次元の定義から明らか.
+        </div>
     </div>
     <div class="panel claim">
         <h3>定義6（Hausdorff測度）</h3>
@@ -107,20 +106,20 @@
             & (1) \quad H^s(\varnothing)=0, \\
             & (2) \quad \{A_j\}_{j\in\N}\subset\mathcal B(X) \text{ : 互いに素のとき }\sum_{j=1}^\infty H^s(A_j)=H^s(\bigcup_{j=1}^\infty A_j).
         \end{align*}\]
-    </div>
-    <div class="panel remark">
-        前半の主張だけ先に示す.
-    </div>
-    <div class="panel proof">
-        明らか.
+        <div class="panel remark">
+            前半の主張だけ先に示す.
+        </div>
+        <div class="panel proof">
+            明らか.
+        </div>
     </div>
     <div class="panel claim">
         <h3>補題8（距離的外測度はBorel測度）</h3>
         距離空間 \(X\) 上の外測度 \(\mu\colon \mathscr P(X)\to[0,\infty]\) が距離的（metric）であるとは, \(A,B\subset X\) について
         \[\dist(A,B)>0\implies\mu(A\cup B)=\mu(A)+\mu(B)\]となることであるとする. もし \(\mu\) が距離的ならば, \(\mu\) を \(\mathcal B(X)\) に制限したものは測度になる.
-    </div>
-    <div class="panel proof">
-        明らか.
+        <div class="panel proof">
+            明らか.
+        </div>
     </div>
 </body>
 </html>

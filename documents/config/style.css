@@ -1,5 +1,5 @@
 :root {
-  --background-color: #d8ceca;   /* 背景の色 */
+  --background-color: #c6c6c6;   /* 背景の色 */
   --article-color: #e3e3e3; /* 文字が乗るところの色*/
 }
 
@@ -59,6 +59,10 @@ main, .panel {
     line-height: 2;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
+
+.remark{background-color: rgb(230, 209, 205);}
+.proof{background-color: rgb(220, 220, 220);}
+.claim{background-color: rgb(207, 210, 241);}
 
 .panel p {
     line-height: 2;

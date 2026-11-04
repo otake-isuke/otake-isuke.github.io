@@ -55,6 +55,7 @@ main, .panel {
     max-width: 90%;
     border-radius: 8px; /* 角を少し丸くする */
     box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* うっすらと影をつける */
+    line-height: 2;
 }
 
 
