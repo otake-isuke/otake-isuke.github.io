@@ -21,10 +21,10 @@
         <h2>Frostmanの補題（フロストマンの補題）とその証明</h2>
     </div>
     <div class="panel claim">
-        <h3>定理（Frostmanの補題）</h3>
+        <h3>定理1（Frostmanの補題）</h3>
             \(n\in\N\), \(s \geq 0\), \(A\subset\R^n\) として, \(A\) は<a href="?.html">解析集合</a>であるとする. このとき次は同値.
             \[\begin{align*}
-                & (1) \quad H^s(A) > 0 . \\
+                & (1) \quad \infty\geq H^s(A) > 0 . \\
                 & (2) \quad \mu \in\M(A)\text{ が存在して},\ \text{任意の }x\in\R^n, r>0\text{ に対して } \mu(B(x,r))\leq r^s. 
             \end{align*}\]
         <div class="panel remark">
@@ -53,10 +53,178 @@
             </li>
             </ul>
         </div>
-        <div class="panel proof">
-            自明
+        <div class="panel remark">
+            \(\mu\in\M(\R^n)\) について \(\supp\mu\): コンパクト, 特に有界であることに注意すると, 簡単な議論によって
+            \[\begin{align*}
+            & (2) \quad \mu \in\M(A)\text{ が存在して},\ \text{任意の }x\in\R^n, r>0\text{ に対して } \mu(B(x,r))\leq r^s.\\
+            &(2')\quad \mu \in\M(A),\ \d>0,\ C>0\text{ が存在して},\ \text{任意の }x\in\supp\mu, r\in (0,\d)\text{ に対して } \mu(B(x,r))\leq C r^s.
+            \end{align*}\]
+            は同値であることが分かります.
         </div>
+        <proof-block>
+            \(s=0\) のときはこれらは明らかに \(A\ne\varnothing\) と同値であるから, よい. 以下 \(s>0\) とする.<br>
+            ((2)\(\Rightarrow\)(1))<br>
+            (2)の \(\mu\) をひとつとる. \(H^s(A)\geq H^s_\infty(A)\) だから \(H^s_\infty(A)>0\) を示せばよい. \(\{A_j\}_{j\in J}\) をとる. \(J\subset\N\), \(A_j\): Borel,
+            \[A\subset\bigcup_{j\in J} A_j\]であるとする.
+            <div class="panel Rem">
+                <a href="HdfMeas.html">ハウスドルフ測度の基本性質</a>の命題2のあとの注意から, 被覆に使う集合はBorelとしてよいのでした.
+            </div>
+            \(\e>0\) を任意にとる. 開球の族 \(\{B(x_j,r_j)\}_{j\in J}\) が存在して, \(A_j\subset B(x_j,r_j)\), \({r_j}^s=d(A_j)^s+\e/2^j\) となる.
+            \[\begin{align*}
+            \sum_{j\in J}d(A_j)^s &= \sum_{j\in J}(r_j^s - \frac{\e}{2^j})\\
+            &\geq\sum_{j\in J}\mu(B(x_j,r_j)) - \e\\
+            &\geq\mu(A) - \e
+            \end{align*}\]
+            である. よって \(\sum_{j\in J}d(A_j)^s \geq\mu(A)\) で, \(H^s_\infty(A)\geq \mu(A)>0\).
+        </proof-block>
     </div>
+    <p>
+        これの \((1)\Rightarrow(2)\) を証明するために, まずは \(A\) がコンパクト集合である場合を示します.
+    </p>
+    <div class="panel claim">
+        <h3>補題2（コンパクト集合に対するFrostmanの補題）</h3>
+            \(n\in\N\), \(s \geq 0\), \(A\subset\R^n\) として, \(A\) はコンパクトであるとする. このとき次は同値.
+            \[\begin{align*}
+                & (1) \quad \infty\geq H^s(A) > 0 . \\
+                & (2) \quad \mu \in\M(A)\text{ が存在して},\ \text{任意の }x\in\R^n, r>0\text{ に対して } \mu(B(x,r))\leq r^s. 
+            \end{align*}\]
+        <proof-block>
+            (2)\(\Rightarrow\)(1)は上で一般に示したので, (1)\(\Rightarrow\)(2)だけ示せばいい. また, \(s>0\) としてよい. また, \(A\subset[0,1]^n\) としてよい.
+            <ul>
+                <li>
+                    ここで \(k\in\N_0\) に対して \(\mathcal{R}_k\) で \([0,1]^n\) に含まれる第 \(k\) 世代の2進立方体（diadic cubes）の全体を表すことにする. すなわち
+                    \[\mathcal R_k=\left\{\prod_{j=1}^n \left[\frac{a_j}{2^k},\frac{a_j+1}{2^k}\right] : (a_j)_{j=1}^n\in \{0,\ldots, 2^k - 1\}^n \right\}\]
+                    である. 
+                </li>
+                <li>
+                    \(0\leq j\leq k\) に対して \(\mu_{k,j}\in\M([0,1]^n)\) を次のように定める. まず \(\mu_{k,0}\) を
+                    \[\mu_{k,0}=\sum_{R\in\mathcal R_k \text{ with } R\cap A\ne\varnothing}\frac{d(R)^s}{\L^n(R)}\L^n|_R\]と定める.
+                    <div class="panel Rem">
+                        ここで \(\L^n\) は \(n\) 次元ルベーグ測度, \(d(R)\) は \(R\) の直径（diameter）です.
+                    </div>
+                </li>
+                <li>
+                    次に \(j < k\) で \(\mu_{k,j}\) が定まっているとき, \(\mu_{k,j+1}\) を
+                    \[\mu_{k,j+1}=\sum_{R\in\mathcal R_{k-j-1}\text{ with }R\cap A\ne\varnothing} \frac{\min\{{\mu_{k,j}(R)},{d(R)^s}\}}{\mu_{k,j}(R)}\mu_{k,j}|_R\]
+                    と定める. このようにして \(\mu_{k,k}\) までを得る.
+                    <div class="panel Rem">
+                        \(R\cap A\ne\varnothing\) なら \(\mu_{k,j}(R)\) は決して0にならないことは確かめられます.
+                        また, \(\mu_{k,j}\) は1辺 \(2^{-k+j}\) の2進立方体の測度をその直径の \(s\) 乗で抑えることが分かります.
+                        またこの構成の仕方から \(j\) が大きくなるにつれて \(\mu_{k,j}\) は小さくなるので,
+                        こうして構成した \(\mu_{k,k}\) は1辺が \(2^{-k}\) 以上の2進立方体, つまり第 \(k\) 世代までの2進立方体を直径の \(s\) 乗で抑えることが分かります. 
+                    </div>
+                    <div class="panel Rem">
+                        任意の \(E\subset\R^n\): Borel に対して
+                        \[\begin{align*}
+                        \mu_{k,j+1}(E)&=\sum_{R\in\mathcal R_{k-j-1}\text{ with }R\cap A\ne\varnothing} \frac{\min\{{\mu_{k,j}(R)},{d(R)^s}\}}{\mu_{k,j}(R)}\mu_{k,j}(E\cap R)\\
+                        &\leq\sum_{R\in\mathcal R_{k-j-1}\text{ with }R\cap A\ne\varnothing} \mu_{k,j}(E\cap R)\\
+                        &\leq\mu_{k,j}(E)
+                        \end{align*}\]
+                        だから, \(\mu_{k,j+1}\) は \(\mu_{k,j}\) より小さいです.
+                    </div>
+                </li>
+                <li>
+                    上の注意から, 任意の \(R\in\bigcup_{j=0}^k\mathcal R_j\) に対して \(\mu_{k,k}(R)\leq d(R)^s\). 特に \(\mu_{k,k}(\R^n)=\mu_{k,k}([0,1]^n)\leq n^{s/2}\).
+                    よって \((\mu_{k,k})_{k\in\N}\) は \(\M([0,1]^n)\subset C([0,1]^n)^*\) の有界列である. \(C([0,1]^n)\) は可分だから, 汎弱収束する部分列 \((\mu_{k,k})_{k\in J}\), \(J\subset\N\), \(\# J=\infty\) がとれる.
+                    収束先を \(\mu\) とおく. \(\mu\in\M([0,1]^n)\cup\{0\}\) である.
+                    <div class="panel Rem">
+                        測度 \(\nu\in\M([0,1]^n)\) を \((\varphi\mapsto\int\varphi\ d\nu)\in C([0,1]^n)^*\) と同一視しています. この対応 \(\M([0,1]^n)\to C([0,1]^n)^*\) は単射で,
+                        \(\nu\) の作用素ノルムは \(\nu([0,1]^n)\) に一致し, また \(\{0\}\cup\M([0,1]^n)\subset C([0,1]^n)^*\) は汎弱閉で, \(\M=\M([0,1]^n)\) と書くと
+                        \[\M-\M+i\M-i\M=C([0,1]^n)^*\]となります（Riesz-Markov-角谷の表現定理）.
+                    </div>
+                </li>
+                <li>
+                    任意の \(k_0\in\N\) と第 \(k_0\) 世代の2進立方体 \(R\in\mathcal R_{k_0}\) を考える. 任意の \(k\in J_{\geq k_0}\) に対して
+                    \(\mu_{k,k}(R)\leq d(R)^s\) である. \(\mu(R)\leq 3^nd(R)^s\) となることを言う.
+                    <div class="panel Rem">
+                        細かいですが, \(\mu_{k,k}\rightharpoonup\mu\) だからといって \(\mu(R)=\lim_{k\in J}\mu_{k,k}(R)\) となるとは限りません.
+                    </div>
+                    いま \(\varphi\in C([0,1]^n)\) が存在して, \(\varphi|_R=1\), \(0\leq\varphi\leq 1\),
+                    \[\supp\varphi\subset \bigcup_{a\in\{-1,0,1\}^n}R+\frac{a}{2^{k_0}}\]
+                    となる. よって
+                    \[\begin{align*}
+                    \mu(R)\leq\int \varphi\ d\mu
+                    =\lim_{k\in J}\int \varphi\ d\mu_{k,k}
+                    \leq\liminf_{k\in J} \mu_{k,k}(\bigcup_{a\in\{-1,0,1\}^n}R+\frac{a}{2^{k_0}})
+                    \leq 3^n d(R)^s.
+                    \end{align*}\]
+                </li>
+                <li>
+                    次に \(\supp\mu\subset A\) を示したい. \(x\in\R^n\) をとり, \(x\notin A\) であるとする. \(A\): コンパクトであるから,
+                    \(k_0\in\N\) が存在して \(B(x,3\sqrt{n}/2^{k_0})\cap A=\varnothing\). \(R_0\) を \(x\in R_0\) となる第 \(k_0\) 世代の2進立方体とする.
+                    すると \(k\geq k_0\) なら \(a\in\{-2,-1,0,1,2\}^n\) に対して
+                    \[\mu_{k,k}(R_0+a/2^{k_0})\]
+                    であるから, \(a\in\{-1,0,1\}^n\) に対して\(\mu(R_0+a/2^{k_0})=0\) で, \(\mu(B(x,1/2^{k_0}))=0\), \(x\notin\supp\mu\).
+                    よって \(\supp\mu\subset A\).
+                </li>
+                <li>
+                    あとは \(\mu\ne 0\) を示せば \(\mu\in\M(A)\) となり, 証明が終わる.
+                    <div class="panel Rem">
+                        \[(2) \quad \mu \in\M(A)\text{ が存在して},\ \text{任意の }x\in\R^n, r>0\text{ に対して } \mu(B(x,r))\leq r^s\]
+                        という条件は, 今 \(A\subset [0,1]^n\) だから
+                        \[(2')\quad\mu \in\M(A)\text{ が存在して},\ R\in\bigcup_{k\in\N}\mathcal R_k\text{ に対して } \mu(R)\lesssim d(R)^s \]
+                        としても同値であることに注意してください. (2')は \(\mu\ne 0\) を示せば今までの議論から成り立つことが分かります.（\(\lesssim\) は正の定数倍すれば不等号が成り立つという意味です. 今回で言えば, \(\mu\in\M(A)\) が存在して, ある定数 \(C>0\) が存在して任意の \(R\in\bigcup_{k\in\N}\mathcal R_k\) に対して \(\mu(R)\leq Cd(R)^s\) という意味です（曖昧になりやすいので注意が必要ですが, 便利なのでよく使われます））
+                    </div>
+                    \(k\in\N\) をとる. ここで各 \(x\in A\) に対して,
+                    \[\mathcal R(x)=\{R\in\bigcup_{0\leq j\leq k}\mathcal R_j: x\in R,\ \mu_{k,k}(R)=d(R)^s\}\]
+                    とおく. \(\mathcal R(x)\ne\varnothing\) であることを示す. 今 \(R_0\in\mathcal R_k\) が存在して \(x\in R_0\).
+                    \(\mu_{k,k}(R_0)\leq\mu_{k,0}(R_0)=d(R_0)^s\) であるが, \(\mu_{k,k}(R_0)=\mu_{k,0}(R_0)\) なら \(R_0\in\mathcal R(x)\) となるのでよい. 
+                    \(\mu_{k,k}(R_0) < \mu_{k,0}(R_0)\) のときは \(1\leq j\leq k\) が存在して \(\mu_{k,k}(R_0)=\mu_{k,j}(R_0) < \mu_{k,j-1}(R_0)\) となるはずだが, 
+                    そのときただ１つ \(R_1\in\mathcal R_{k-j}\) が存在して \(R_0\subset R_1\) となる. このとき \(\mu_{k,j}\) の構成から, \(\mu_{k,j}(R_1)=d(R_1)^s\) となる. 
+                    また \(\mu_{k,k}(R_1)=\mu_{k,j}(R_1)\) であることも分かる. よって \(R_1\in\mathcal R(x)\).
+                    <div class="panel Rem">
+                        このへんは難しいですね（笑）。
+                    </div>
+                </li>
+                <li>
+                    よって \(\mathcal R(x)\) は空でなく, また明らかに有限集合であるから, 包含関係について極大なものがとれる. それを１つ選び, \(R(x)\) と書くことにする.
+                    \(m\in\N\) が存在して \(\{R(x):x\in A\}=\{R_1,\ldots,R_m\}\), \(R_i\ne R_j\) (\(i\ne j\)) となるよう置くことができる.
+                    <div class="panel Rem">
+                        そもそも \(\bigcup_{0\leq j\leq k}\mathcal R_j\) が有限集合です.
+                    </div>
+                </li>
+                <li>
+                    すると極大性から \(R_i\subset R_j\) ならば \(R_i=R_j\) である. つまり \(R_i\ne R_j\) ならば \(R_i\not\subset R_j\), \(R_j\not\subset R_i\).
+                    また2進立方体の簡単な性質から, \(R_i\not\subset R_j\), \(R_j\not\subset R_i\) ならば \(\L^n(R_i\cap R_j)=0\)（交わるとしても辺や面などの \(n\) 次元未満のところだけなので）.
+                    よって
+                    \[\begin{align*}
+                    \mu_{k,k}([0,1]^n)\geq\mu_{k,k}(\bigcup_{x\in A}R(x))
+                    =\mu_{k,k}(\bigcup_{j=1}^m R_j)
+                    =\sum_{j=1}^m\mu_{k,k}(R_j)
+                    =\sum_{j=1}^m d(R_j)^s
+                    \geq H^s_\infty(A)
+                    \end{align*}\]
+                    で, \(\mu([0,1]^n)=\lim_{k\in J}\mu_{k,k}([0,1]^n)\geq H^s_\infty(A)>0\).
+                    <div class="panel Rem">
+                        <ul>
+                            <li>
+                                構成の仕方から \(\L^n\)-零集合は \(\mu_{k,k}\)-零集合です.
+                            </li>
+                            <li>
+                                <a href="HdfMeas.html">ハウスドルフ測度の基本性質</a>の命題2から, \(H^s_\infty(A)>0\) であることに注意してください.
+                            </li>
+                        </ul>
+                    </div>
+                    以上から \(\mu\ne 0\) で, 補題2の証明が終わる.
+                </li>
+            </ul>
+        </proof-block>
+    </div>
+
+    <div class="panel claim">
+        <h3>補題3</h3>
+        \(s\geq 0\), \(A\subset\R^n\): 解析集合, \(0 < H^s(A) \leq\infty\) のとき, \(K\subset A\): コンパクトが存在して
+        \(0 < H^s(K) \leq\infty\)
+        <proof-block>
+            明らか.
+        </proof-block>
+    </div>
+    私たちは定理1の(1)\(\Rightarrow\)(2)を示したいのでした. しかし上の補題の主張をみると, もう示せていることに気づくはずです.
+    <proof-block>
+        (定理1の(1)\(\Rightarrow\)(2))<br>
+        補題2と補題3から直ちに従う.
+    </proof-block>
     </main>
 </body>
+<script src="config/proof.js"></script>
 </html>
