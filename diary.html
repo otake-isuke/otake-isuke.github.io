@@ -38,6 +38,41 @@
         <div class="year" data-year="2026">
             <div class="month" data-month="11">
                 <div>
+                    <h3>2026年11月7日（土）</h3>
+                    <p class="article-card" data-tags="math question">
+                        コンパクトな台を持つ, 0でない有限Borel測度 \(\mu\in\M(\R^n)\) と \(s\geq 0\) に対して \(I_s(\mu)=\iint |x-y|^{-s}\ d\mu x\ d\mu y\) を \(\mu\) の \(s\) 次のエネルギーという.
+                        \(A\subset\R^n\): Borel に対して \(\dim A=\sup\{s\geq 0:\exists\mu\in\M(A),\ I_s(\mu) < \infty\}\) という事実があり, 特に \(I_s(\mu) < \infty\implies\dim\supp\mu\geq s\) である.<br>
+                        問題：\(I_n(\mu) < \infty\) となる \(\mu\in\M(\R^n)\) は存在するか？<br>
+                        答え：No. \(\supp\mu\subset B(0,1/2)\) としてよい. \(I_n(\mu) < \infty\) とすると, \(|x-y|^{-s}\uparrow|x-y|^{-n}\) (\(s\uparrow n,\ x,y\in B(0,1/2)\)) であるからMCTより
+                        \[I_s(\mu)\uparrow I_n(\mu)\quad (s\uparrow n)\]
+                        である. ところで（唐突にみえるかもしれないが） \(0 < s < n\) に対しては 
+                        \[\begin{align*}
+                        I_s(\mu)=&\gamma(n,s)\int_{\R^n} |\widehat\mu (x)|^2 |x|^{s-n}\ dx\\
+                        \gamma(n,s)=&\pi^{s-\frac n2}\frac{\Gamma(\frac{n-s}2)}{\Gamma(\frac s2)}
+                        \end{align*}\]
+                        となる. よって
+                        \[\begin{align*}
+                        \int|\widehat\mu (x)|^2 \ dx
+                        &\leq\liminf_{s\to n}\int|\widehat\mu (x)|^2 \jbra{x}^{s-n}\ dx\\
+                        &\leq\liminf_{s\to n}\int|\widehat\mu (x)|^2 |x|^{s-n}\ dx\\
+                        &\leq\liminf_{s\to n}\gamma(n,s)^{-1}I_s(\mu)\\
+                        \end{align*}\]
+                        である. \(s\to n\) で \(I_s(\mu)\to I_n(\mu) < \infty\) で,
+                        そして明らかに（......） \(\gamma(n,s)\to\infty\) であるから
+                        \[\int|\widehat\mu (x)|^2 \ dx=0\]
+                        が従う. よって \(\widehat\mu=0\), \(\mu=0\) となり矛盾.
+                    </p>
+                    <p class="article-card" data-tags="math">
+                        フーリエ変換の単射性に感謝。超関数として \(\F:\S^\prime(\R^n)\to\S^\prime(\R^n)\) が全単射, 特に単射なので, \(\mu\) が測度であっても
+                        \(\widehat\mu=0\implies\mu=0\) が言えるのだ。素朴には始域を広げると単射性は成り立ちづらくなるものだが,
+                        フーリエ変換の場合は超関数というとても大きいクラスからの写像だと思っても単射性が成り立っているので偉い.
+                        あるいはほぼ同じことだが, 逆写像 \(\F^{-1}:\S^\prime(\R^n)\to\S^\prime(\R^n)\) が存在して, それが \(L^1(\R^n)\) や \(L^2(\R^n)\) に制限したとき我々がよく知るフーリエ逆変換に一致するということが偉い.<br><br>
+                        Cor：\(\mu\in\S^\prime(\R^n)\) とする. イメージとしては特に有限測度と思ってもいい. <br>
+                        (1) \(\widehat\mu\in L^2(\R^n)\implies\mu\in L^2(\R^n)\) .<br>
+                        (2) \(\widehat\mu\in L^1(\R^n)\implies\mu\in C_0(\R^n)\) .
+                    </p>
+                </div>
+                <div>
                     <h3>2026年11月6日（金）</h3>
                     <p class="article-card" data-tags="daily">
                         今日は大学に行った。帰りに一人でカラオケに行った。今日は調子が良くて、2時間一人でずっと歌っていたが、最後まで高音がよく出た。
