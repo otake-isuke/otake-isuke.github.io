@@ -8,11 +8,6 @@ window.MathJax = {
     tex: {
         macros: {
         // \newcommand{\R}{\mathbb{R}} と同じ
-        R: "{\\mathbb{R}}",
-        C: "{\\mathbb{C}}",
-        Z: "{\\mathbb{Z}}",
-        Q: "{\\mathbb{Q}}",
-        N: "{\\mathbb{N}}",
         
         dis: "{\\displaystyle}",
         dist: "{\\mathrm{dist} }",
@@ -26,10 +21,19 @@ window.MathJax = {
         
         A: "{\\mathscr{A}}",
         E: "{\\mathbb{E}}",
+        F: "{\\mathcal{F}}",
         L: "{\\mathcal{L}}",
         M: "{\\mathcal{M}}",
+        P: "{\\mathscr{P}}",
         S: "{\\mathcal{S}}",
-        F: "{\\mathcal{F}}",
+        
+
+
+        R: "{\\mathbb{R}}",
+        C: "{\\mathbb{C}}",
+        Z: "{\\mathbb{Z}}",
+        Q: "{\\mathbb{Q}}",
+        N: "{\\mathbb{N}}",
 
         a: "{\\alpha}",
         b: "{\\beta}",

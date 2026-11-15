@@ -73,7 +73,7 @@ p {
     width : 800px;
     max-width: 90%;
 }
-.claim{margin-top: 40px;}
+.claim{margin-top: 20px;}
 .remark{margin-top: 5px;}
 .remark::before {
   content: "【注意】";

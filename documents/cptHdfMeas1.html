@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="config/style.css"> 
+<script src="config/texMacro.js"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>Hausdorff測度の非アトム性（前半）</title>
+</head>
+<body>
+    <header>
+        <h1>KsKのホームページ</h1>
+        <nav><ul>
+                <li><a href="../index.html">ホーム</a></li>
+                <li><a href="index.html">記事の一覧</a></li>
+        </ul></nav>
+    </header>
+    <main>
+        <font color="#ff0000">執筆作業中...</font>
+    <div class="panel title">
+        <h2>Hausdorff測度の非アトム性の証明（前半）</h2>
+    </div>
+    今回は以下の定理Aを示そうと思います。少し長くなるので前半と後半で２つの記事に分けて、前半のこの記事では目標の定理を示すための準備をしていきます。
+    後半の記事は<a href="cptHdfMeas2.html" target="_blank">こちら</a>。
+    <div class="panel claim">
+        <h3>定理A</h3>
+        \(n\in\N\), \(0 \leq s\leq n\) とする. \(H^s\) で \(\R^n\) 上の<a href="HdfMeas.html" target="_blank">Hausdorff測度</a>を表すことにする.
+        \(A\subset\R^n\) は解析集合（特にBorel集合）であるとする.<br>
+        このとき, \(0 < H^s(A) \leq\infty\) ならば \(K\subset A\): コンパクト が存在して \(0 < H^s(K) < \infty\).
+    </div>
+    定理Aを認めると、次の系Bが簡単に従います。系Bで述べられている性質は非アトム性と言われ、これが成り立たない測度はアトム的と呼ばれます。
+    <div class="panel claim">
+        <h3>系B（Hausdorff測度の非アトム性）</h3>
+        \(n\in\N\), \(0 \leq s\leq n\) とする. \(H^s\) で \(\R^n\) 上の<a href="HdfMeas.html" target="_blank">Hausdorff測度</a>を表すことにする.
+        \(A\subset\R^n\) はBorel集合であるとする.<br>
+        このとき, \(0 < H^s(A) \leq\infty\) ならば \(B\subset A\) が存在して \(0 < H^s(B) < H^s(A)\).
+        <proof-block>
+            定理Aにより \(H^s(A) < \infty\) の場合に示せば十分です. \(\mu=H^s|_A\) が非アトム的であることを示す訳ですが,
+            これは \(\mu\) が \(\R^n\) 上の有限測度であることと, 一点集合の測度が0になるという性質だけから一般に示すことができます.
+            あとの詳細は演習問題とします.
+        </proof-block>
+    </div>
+    ここで、後半も含め、今回の記事を通して
+    \(n\in\N\) と \(0 \leq s \leq n\) を固定しておこうと思います。補題の主張に一々これを書くのは煩わしいですからね。
+    また定理Aは \(s=0,n\) のときは自明なので、\(s\ne 0,n\) であるとします。（この記事で紹介するその他の補題も \(s=0,n\)
+    の場合は自明に真であるか自明に偽である場合がほとんどなので、困らないと思います。）
+    <div class="panel claim">
+        <h3>定義1</h3>
+
+    </div>
+    さて、この前半の記事における目標は以下の補題2を示すことです。
+    <div class="panel claim">
+        <h3>補題2</h3>
+        \(X=(\{0,1\}^n)^\N\) とおき, \(c:\P(X)\to[0,\infty]\) を次のように定める.
+        \[\begin{align}
+        c(A)=\inf\{\}
+        \end{align}\]
+        すると \(c\) は <a href="choquet.html" target="_blank">Choquet capacity</a> である.
+    </div>
+    
+
+    </main>
+</body>
+<script src="config/proof.js"></script>
+</html>

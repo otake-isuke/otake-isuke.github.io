@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="config/style.css"> 
+<script src="config/texMacro.js"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>Choquet capacity と Choquet の capacitability 定理</title>
+</head>
+<body>
+    <header>
+        <h1>KsKのホームページ</h1>
+        <nav><ul>
+                <li><a href="../index.html">ホーム</a></li>
+                <li><a href="index.html">記事の一覧</a></li>
+        </ul></nav>
+    </header>
+    <main>
+        <font color="#ff0000">執筆作業中...</font>
+    <div class="panel title">
+        <h2>Choquet capacity と Choquet の capacitability 定理</h2>
+    </div>
+    <div class="panel claim">
+        <h3>定義1（Choquet capacity）</h3>
+        \(X\) : 距離空間, \(c:\P(X)\to[0,\infty]\) とする.<br>
+        ここで \(c\) が Choquet capacity であるとは, 次の３条件を満たすことであると定義する.
+        \[\begin{align}
+        &(1)\ A\subset B\subset X\implies c(A)\leq c(B)\\
+        &(2)\ A_j\uparrow A\implies c(A_j)\to c(A)\qquad\text{（ \(A_j\subset X\), \(j\in\N\) ）}\\
+        &(3)\ K_j\downarrow K\implies c(K_j)\to c(K)\qquad\text{（但し \(K_j:\)コンパクト（ \(j\in\N\) ））}
+        \end{align}\]
+        <div class="panel Rem">
+            capacity とは、測度の公理を満たすとは限らないけれど、気持ちとしては測度のように集合の大きさを測っている関数を指す言葉です。
+            capacity 単体ではきちんと定義された用語ではないと思っています。
+        </div>
+    </div>
+    Choquet capacity を定義するモチベーションは次の定理にあります。
+    <div class="panel claim">
+        <h3>定理2（Choquet's capacitability theorem）</h3>
+        \(X\) : 距離空間, \(c:\P(X)\to[0,\infty]\) : Choquet capacity であるとする. また \(A\subset X\) は解析集合（特にBorel）であるとする.<br>
+        このとき \[c(A)=\sup\{c(K):K\subset A\text{ はコンパクト}\}\]となる.
+        <proof-block></proof-block>
+    </div>
+
+
+    
+
+    </main>
+</body>
+<script src="config/proof.js"></script>
+</html>
