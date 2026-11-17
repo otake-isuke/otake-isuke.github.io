@@ -17,13 +17,13 @@
         </ul></nav>
     </header>
     <main>
-        <font color="#ff0000">執筆作業中...</font>
     <div class="panel title">
         <h2>Choquet capacity と Choquet の capacitability 定理</h2>
     </div>
+    この記事では Choquet capacity と呼ばれる非負値の集合関数のクラスを紹介し、その性質として Choquet の capacitability 定理を紹介・証明します。
     <div class="panel claim">
         <h3>定義1（Choquet capacity）</h3>
-        \(X\) : 距離空間, \(c:\P(X)\to[0,\infty]\) とする.<br>
+        \(X\) : コンパクト距離空間, \(c:\P(X)\to[0,\infty]\) とする.<br>
         ここで \(c\) が Choquet capacity であるとは, 次の３条件を満たすことであると定義する.
         \[\begin{align}
         &(1)\ A\subset B\subset X\implies c(A)\leq c(B)\\
@@ -35,12 +35,170 @@
             capacity 単体ではきちんと定義された用語ではないと思っています。
         </div>
     </div>
-    Choquet capacity を定義するモチベーションは次の定理にあります。
+    どれも capacity を名乗るなら満たしていてほしい性質ではあります。
+    このようなごく自然な性質さえ満たしていれば、次のような位相的な正則性が自動的に着いてきます。
     <div class="panel claim">
         <h3>定理2（Choquet's capacitability theorem）</h3>
-        \(X\) : 距離空間, \(c:\P(X)\to[0,\infty]\) : Choquet capacity であるとする. また \(A\subset X\) は解析集合（特にBorel）であるとする.<br>
+        \(X\) : コンパクト距離空間, \(c:\P(X)\to[0,\infty]\) : Choquet capacity であるとする. また \(A\subset X\) は解析集合（特にBorel）であるとする.<br>
         このとき \[c(A)=\sup\{c(K):K\subset A\text{ はコンパクト}\}\]となる.
-        <proof-block></proof-block>
+        <proof-block>
+\(0 < a < c(A) \le \infty\) とする．\(K \subset A\)：コンパクト が存在して \(c(K) \ge a\) となることを示せばよい．
+今 \(A \subset X\)：解析集合 だから，連続全射 \(f : \N^\N \to A\) が存在する．
+<div class="panel Rem">
+\(\N^\N\) は離散位相を入れた \(\N\) の \(\N\) 個直積です。
+</div>
+
+ここで \(n \in \N\) に対して射影を \(\pi_n : \N^\N \to \N,\ \varphi \mapsto \varphi(n)\) とおき，\(u \in \N^n\) に対して \([u] \subset \N^\N\) を，
+\[
+  [u] := \bigcap_{j=1}^n \pi_j^{-1}(\{u(j)\}) = \{\varphi \in \N^\N : \varphi(j) = u(j) \quad (j = 1, \dots, n)\}
+\]
+と定める．これは \(\N^\N\) で開かつ閉．\(u = (u_1, \dots, u_n)\) のとき，\([u]\) を（\([(u_1, \dots, u_n)]\) ではなく単に） \([u_1, \dots, u_n]\) と書くことにする．
+<hr>
+各 \(n \in \N\) に対して \(m_n \in \N\) を次のように帰納的に定め,
+\[
+  T_n = \N_{\le m_1} \times \dots \times \N_{\le m_n}
+\]
+とおく.
+<ul>
+    <li>
+\[A = f(\N^\N) = \bigcup_{j=1}^\infty f([j])\] であるから，\(c\) の性質 (2) から \(m_1 \in \N\) が存在して
+\[
+  c\biggl(\bigcup_{j=1}^{m_1} f([j])\biggr) > a
+\]
+となる．そこでそのような \(m_1\) をとり，
+\[
+  T_1 = \{1, \dots, m_1\} \subset \N^1
+\]
+と定める．このとき
+\[
+  c\biggl(\bigcup_{u \in T_1} f([u])\biggr) > a
+\]
+であることに注意．
+    </li>
+    <li>
+\(m_1,\ldots,m_n \in \N\) を
+\[
+  c\biggl(\bigcup_{u \in T_n} f([u])\biggr) > a
+\]
+となるようにとれたとする．このとき \(m_{n+1} \in \N\), \(T_{n+1}\subset\N^{n+1}\) を次のように定める．
+
+まず
+\[
+  \bigcup_{u \in T_n} [u] = \bigcup_{u \in T_n} \bigcup_{j=1}^\infty [u, j] = \bigcup_{j=1}^\infty \bigcup_{u \in T_n} [u, j]
+\]
+である．ただしここで \((u, j)\) とは，\(u = (u_1, \dots, u_n)\) としたとき，\((u_1, \dots, u_n, j) \in \N^{n+1}\) と書かれる有限列のことであるとする．
+
+すると同様に，
+\[
+  \bigcup_{j=1}^m \bigcup_{u \in T_n} [u, j] \uparrow \bigcup_{u \in T_n} [u] \qquad (m \to \infty)
+\]
+だから
+\[
+  \bigcup_{j=1}^m \bigcup_{u \in T_n} f([u, j])
+  = f\biggl(\bigcup_{j=1}^m \bigcup_{u \in T_n} [u, j]\biggr)
+  \uparrow f\biggl(\bigcup_{u \in T_n} [u]\biggr)
+  = \bigcup_{u \in T_n} f([u])
+\]
+である．よって \(c\) の性質 (2) から，\(m_{n+1} \in \N\) が 1 つとれて，
+\[
+  c\biggl(\bigcup_{j=1}^{m_{n+1}} \bigcup_{u \in T_n} f([u, j])\biggr) > a
+\]
+となる．こうして \(m_{n+1}\) を定めると \(T_{n+1} \subset \N^{n+1}\) は
+\[
+  c\biggl(\bigcup_{u \in T_{n+1}} f([u])\biggr) = c\biggl(f\biggl(\bigcup_{u \in T_{n+1}} [u]\biggr)\biggr) > a
+\]
+をみたす．
+    </li>
+</ul>
+<hr>
+以上の方法で \(m_n\in\N\), \(T_n \subset \N^n\) を定めると，各 \(n \in \N\) に対して
+\begin{align*}
+  &c(f([T_n])) > a \\
+\end{align*}
+をみたす．ただしここで
+\[
+  [T_n] := \bigcup_{u \in T_n} [u]
+\]
+とおいた．
+<hr>
+ここで \(K_n \subset X\) を，
+\[
+  K_n = \overline{f([T_n])}
+\]
+で定める．\(X\)：コンパクト より，\(K_n\)：コンパクト である．今 性質 (1) より
+\[
+  c(K_n) \ge c(f([T_n])) > a
+\]
+であって，また \([T_n] \supset [T_{n+1}]\) より \(K_n \supset K_{n+1}\) である．\(K = \bigcap_{n \in \N} K_n\) とおくと，性質 (3) より，
+\[
+  c(K) = \lim_{n \to \infty} c(K_n) \ge a
+\]
+であり, また \(K\) は当然コンパクトである．よって，\(K \subset A = f(\N^\N)\) を示せば証明が完了する．
+<hr>
+\(K\subset A\) を示すために
+\[x \in K = \bigcap_{n \in \N} \overline{\bigcup_{u \in T_n} f([u])} = \bigcap_{n \in \N} \bigcup_{u \in T_n} \overline{f([u])}\]
+を任意にとる. \(x \in f(\N^\N)\) を示したい．
+<div class="panel Rem">
+\(T_n\) は有限集合だからここでは合併と閉包という操作は交換します。念のため。
+</div>
+
+今 各 \(n \in \N\) に対して \(u_n \in T_n\) が存在して \(x \in \overline{f([u_n])}\) である．ここで
+\[
+  \widetilde{u}_n = (u_n, 1, 1, 1, \dots) \in \N^\N
+\]
+とおく．すると，
+\[
+  \widetilde{u}_n \in \prod_{j \in \N} \N_{\le m_j} = \bigl\{\varphi \in \N^\N : \varphi(j) \le m_j \ (j \in \N)\bigr\}
+\]
+である．今 この右辺の集合はコンパクトの直積だからコンパクトであり，また明らかに距離化可能だから，収束部分列 \((\widetilde{u}_n)_{n \in N}\)，\(N \subset \N\)，\(\# N = \infty\)，が存在する．
+\[
+  u = \lim_{n \in N} \widetilde{u}_n \in \N^\N
+\]
+とおく．
+<hr>
+ここで 各 \(n \in N\) に対して \(x \in \overline{f([u_n])}\) であるから，
+\[
+  t_n \in [u_n] \subset \N^\N \text{ が存在して，}\quad \dist(x, f(t_n)) < \frac{1}{2^n}.
+\]
+よって \(f(t_n) \to x \quad \text{in } X \ (n \in N,\, n \to \infty)\) である．
+<div class="panel Rem">
+\(f:\N^\N\to X\), \(X:\) コンパクト距離空間です。念のため。
+</div>
+\(k \in \N\) に対して \(u|_k := u|_{\{1, \dots, k\}} = (u(1), \dots, u(k)) \in \N^k\) と書くことにする．すると，
+\[
+  \bigl\{[u|_k] \subset \N^\N : k \in \N\bigr\}
+\]
+は \(u \in \N^\N\) の基本近傍系である．ここで \(k \in \N\) をとる．
+\(\widetilde{u}_n \to u \quad \text{in } \N^\N\) であるから，\(n_0 \in \N_{\ge k}\) が存在して，
+\(n \ge n_0\) ならば \(\widetilde{u}_n \in [u|_k]\) である．
+つまり，\(n \in N_{\ge n_0}\) ならば \((u_n(1), \dots, u_n(k)) = (u(1), \dots, u(k))\)．
+<hr>
+今 \(t_n \in [u_n]\) であるから \(n \in N_{\ge n_0}\) に対して
+\[
+  (t_n(1), \dots, t_n(k), \dots, t_n(n)) = (u_n(1), \dots, u_n(k), \dots, u_n(n))
+\]
+であり，
+\[
+  (t_n(1), \dots, t_n(k)) = (u(1), \dots, u(k)),
+\]
+つまり
+\[
+  t_n \in [u|_k].
+\]
+今 \(k \in \N\) は任意にとっているから，これは
+\[
+  t_n \to u \quad \text{in } \N^\N
+\]
+を意味する．よって \(f:\N^\N\to X\) の連続性から
+\[
+  f(t_n) \to f(u) \quad \text{in } X
+\]
+であるが，\(X\) はハウスドルフだから極限は一意で，
+\[
+  x = f(u)
+\]
+が従う．以上から \(x \in f(\N^\N) = A\) で，\(K \subset A\) が従い，証明が終わる.
+        </proof-block>
     </div>
 
 
