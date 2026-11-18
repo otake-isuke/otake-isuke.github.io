@@ -6,7 +6,7 @@
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <head>
     <meta charset="UTF-8">
-    <title>Hausdorff測度の非アトム性（後半）</title>
+    <title>Hausdorff測度の非アトム性（中編）</title>
 </head>
 <body>
     <header>
@@ -19,13 +19,50 @@
     <main>
         <font color="#ff0000">執筆作業中...</font>
     <div class="panel title">
-        <h2>Hausdorff測度の非アトム性の証明（後半）</h2>
+        <h2>Hausdorff測度の非アトム性の証明（中編）</h2>
     </div>
+    こんにちは。この記事はHausdorff測度の非アトム性の証明の中編です。
+    まだ<a href="cptHdfMeas1.html">前編</a>を見ていない方はそちらをご覧ください。<br>
+    さて、前回はこちらの補題Aを示したのでした。
     <div class="panel claim">
-        <h3></h3>
+        <h3>補題A</h3>
+        \(c : \P(X) \to [0, \infty)\) を，\(A \subset X\) に対して
+        \[
+        c(A) = \inf\biggl\{\sum_{u \in T} 2^{-s|u|} : T \subset \bigcup_{k \in \N} (\{0,1\}^n)^k,\ A \subset \bigcup_{u \in T} [u]\biggr\}
+        \]
+        と定めると，\(c\) は <a href="choquet.html" target="_blank">Choquet capacity</a> である．
     </div>
-    
-    
+    また、前回の記号を引き続き用いることにします。つまり
+    \[Y=\bigcup_{k \in \N} (\{0,1\}^n)^k,\quad X= (\{0,1\}^n)^\N,\quad [T]=\bigcup_{u \in T} [u]\quad(T\subset Y)\]
+    と書きます。すると
+    \[c(A)=\inf\{\sum_{u \in T} 2^{-s|u|}: T\subset Y,\ A\subset[T]\}\]
+    となります。今回の目標は次の補題です。
+    <div class="panel claim">
+        <h3>補題B</h3>
+        \(A\subset[0,1]^n:\) 解析集合 に対して, <br>
+        \(0 < H^s(A) \leq\infty\) ならば \(K\subset A:\) コンパクト が存在して \(0 < H^s(K)\leq\infty\)
+    </div>
+    最終目標である定理Cと比べてみましょう。
+    <div class="panel claim">
+        <h3>定理C（再掲）</h3>
+        \(A\subset\R^n:\) 解析集合 に対して, <br>
+        このとき, \(0 < H^s(A) \leq\infty\) ならば \(K\subset A\): コンパクト が存在して \(0 < H^s(K) < \infty\).
+    </div>
+    \(A\subset\R^n\) か \(A\subset[0,1]^n\) であるかというのは些細な違いで、
+    本質的な違いは \(H^s(K)=\infty\) となることを許すか否か、というところです。<br>
+    ここで基本的な注意をしておきましょう。
+    <div class="panel claim">
+        <h3>補題B-1</h3>
+        \(A\subset[0,1]^n\) に対して, <br>
+        \[0 < H^s(A) \leq\infty\iff H^s_\infty(A)>0\]
+        <proof-block>
+            この記事（<a href="HdfMeas.html" target="_blank">Hausdorff測度（ハウスドルフ測度）の定義とその基本性質</a>）の命題2を参照してください。
+        </proof-block>
+    </div>
+
+
+
+
 
     </main>
 </body>

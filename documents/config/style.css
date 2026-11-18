@@ -63,6 +63,7 @@ main{width:80%}
 .title{background-color: rgb(115, 150, 99);}
 .remark{background-color: rgb(230, 209, 205);}
 .proof{background-color: rgb(220, 220, 220);}
+.comment{background-color: rgb(246, 232, 142);}
 .claim{background-color: rgb(207, 210, 241);}
 .Rem{background-color: rgb(240, 226, 223); margin-top: 5px;}
 .panel p {
@@ -93,4 +94,15 @@ p {
   display: block;
   text-align:right;
   color: rgb(0, 0, 0);
+}
+
+@counter-style maruBra {
+  system: fixed;
+  symbols: "(1)" "(2)" "(3)" "(4)" "(5)" "(6)" "(7)" "(8)" "(9)" "(10)";
+  suffix: " ";
+}
+ol.maru_d {
+  list-style: maruBra;
+  margin: 0;
+  padding-left: 1.3em;
 }

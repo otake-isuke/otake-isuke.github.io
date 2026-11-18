@@ -6,60 +6,396 @@
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <head>
     <meta charset="UTF-8">
-    <title>Hausdorff測度の非アトム性（前半）</title>
+    <title>Hausdorff測度の非アトム性（前編）</title>
 </head>
 <body>
     <header>
-        <h1>KsKのホームページ</h1>
         <nav><ul>
-                <li><a href="../index.html">ホーム</a></li>
                 <li><a href="index.html">記事の一覧</a></li>
         </ul></nav>
     </header>
     <main>
-        <font color="#ff0000">執筆作業中...</font>
     <div class="panel title">
-        <h2>Hausdorff測度の非アトム性の証明（前半）</h2>
+        <h2>Hausdorff測度の非アトム性の証明（前編）</h2>
     </div>
-    今回は以下の定理Aを示そうと思います。少し長くなるので前半と後半で２つの記事に分けて、前半のこの記事では目標の定理を示すための準備をしていきます。
-    後半の記事は<a href="cptHdfMeas2.html" target="_blank">こちら</a>。
+    こんにちは。今回は以下の定理Cを示そうと思います。少し長くなるので前中後で3つの記事に分けて、この記事では目標の定理Cを示すための準備をしていきます。
+    （中編は<a href="cptHdfMeas2.html" target="_blank">こちら</a>。）
+    定理Cは、\(\R^n\) 上の Hausdorff 測度がある種の位相的な正則性をみたす良い測度である、という主張です。
     <div class="panel claim">
-        <h3>定理A</h3>
-        \(n\in\N\), \(0 \leq s\leq n\) とする. \(H^s\) で \(\R^n\) 上の<a href="HdfMeas.html" target="_blank">Hausdorff測度</a>を表すことにする.
+        <h3>定理C（目標）</h3>
+        \(n\in\N\), \(0 \leq s\leq n\) とする. \(H^s\) で \(\R^n\) 上の \(s\) 次 <a href="HdfMeas.html" target="_blank">Hausdorff測度</a> を表すことにする.
         \(A\subset\R^n\) は解析集合（特にBorel集合）であるとする.<br>
         このとき, \(0 < H^s(A) \leq\infty\) ならば \(K\subset A\): コンパクト が存在して \(0 < H^s(K) < \infty\).
     </div>
-    定理Aを認めると、次の系Bが簡単に従います。系Bで述べられている性質は非アトム性と言われ、これが成り立たない測度はアトム的と呼ばれます。
+    定理Cを認めると、次の系Dが簡単に従います。系Dで述べられている性質は非アトム性と言われ、これが成り立たない測度はアトム的と呼ばれます。
     <div class="panel claim">
-        <h3>系B（Hausdorff測度の非アトム性）</h3>
+        <h3>系D（Hausdorff測度の非アトム性）</h3>
         \(n\in\N\), \(0 \leq s\leq n\) とする. \(H^s\) で \(\R^n\) 上の<a href="HdfMeas.html" target="_blank">Hausdorff測度</a>を表すことにする.
         \(A\subset\R^n\) はBorel集合であるとする.<br>
         このとき, \(0 < H^s(A) \leq\infty\) ならば \(B\subset A\) が存在して \(0 < H^s(B) < H^s(A)\).
         <proof-block>
-            定理Aにより \(H^s(A) < \infty\) の場合に示せば十分です. \(\mu=H^s|_A\) が非アトム的であることを示す訳ですが,
+            定理Cにより \(H^s(A) < \infty\) の場合に示せば十分です. \(\mu=H^s|_A\) が非アトム的であることを示す訳ですが,
             これは \(\mu\) が \(\R^n\) 上の有限測度であることと, 一点集合の測度が0になるという性質だけから一般に示すことができます.
             あとの詳細は演習問題とします.
         </proof-block>
     </div>
-    ここで、後半も含め、今回の記事を通して
+    <hr>
+    さて、ここで中・後編も含め、今回の記事を通して
     \(n\in\N\) と \(0 \leq s \leq n\) を固定しておこうと思います。補題の主張に一々これを書くのは煩わしいですからね。
-    また定理Aは \(s=0,n\) のときは自明なので、\(s\ne 0,n\) であるとします。（この記事で紹介するその他の補題も \(s=0,n\)
+    また定理Cは \(s=0,n\) のときは自明なので、\(s\ne 0,n\) であるとします。（この記事で紹介するその他の補題も \(s=0,n\)
     の場合は自明に真であるか自明に偽である場合がほとんどなので、困らないと思います。）
     <div class="panel claim">
-        <h3>定義1</h3>
-
+        <h3>記号</h3>
+この記事（前編）では, \(X=(\{0,1\}^n)^\N=\mathrm{Map}(\N,\{0,1\}^n)\) とおく（離散位相の直積位相を入れる）. <br>
+また \(\{0,1\}^n\) の有限列の全体を \[Y=\bigcup_{k=1}^\infty (\{0,1\}^n)^k\]とおく.
+\(u\in (\{0,1\}^n)^k\subset Y\) に対して，\(|u|\) で \(u\) の長さ
+\(k\) を表すことにし，また
+\[
+  [u] := \bigl\{t \in X : t(j) = u(j) \in \{0,1\}^n \ (1 \le j \le |u|)\bigr\}
+\]
+とおく．\(X\) はコンパクト距離付可能で，\([u] \subset X\) は開かつコンパクトであることに注意．
+<div class="panel Rem">
+    \(X\) はカントール集合 \(C\subset[0,1]\) の \(n\) 個直積 \(C^n\subset[0,1]^n\) と位相空間として同じです。
+    その同相によると、\([u]\) というのは \(|u|\) ステップ目にできる１辺 \(3^{-|u|}\) の立方体に対応します。
+</div>
     </div>
-    さて、この前半の記事における目標は以下の補題2を示すことです。
+    さて、前編における目標は以下の補題Aを示すことです。
     <div class="panel claim">
-        <h3>補題2</h3>
-        \(X=(\{0,1\}^n)^\N\) とおき, \(c:\P(X)\to[0,\infty]\) を次のように定める.
-        \[\begin{align}
-        c(A)=\inf\{\}
-        \end{align}\]
-        すると \(c\) は <a href="choquet.html" target="_blank">Choquet capacity</a> である.
+        <h3>補題A</h3>
+\(c : \P(X) \to [0, \infty)\) を，\(A \subset X\) に対して
+\[
+  c(A) = \inf\biggl\{\sum_{u \in T} 2^{-s|u|} : T \subset \bigcup_{k \in \N} (\{0,1\}^n)^k,\ A \subset \bigcup_{u \in T} [u]\biggr\}
+\]
+と定めると，\(c\) は <a href="choquet.html" target="_blank">Choquet capacity</a> である．すなわち，
+<ol class="maru_d">
+  <li> \(A \subset B \subset X\) ならば \(c(A) \le c(B)\) （単調性）</li>
+  <li> \(A_j \uparrow A\) ならば \(c(A_j) \to c(A) \quad (j \in \N)\) （増大列についての極限の交換）</li>
+  <li> \(K_j \downarrow K\)，\(K_j\)：コンパクト ならば \(c(K_j) \to c(K) \quad (j \in \N)\) （コンパクト集合の減少列についての極限の交換）</li>
+</ol>
+<div class="panel Rem">
+    この capacity \(c\) は、\([0,1]^n\) 上の <a href="HdfMeas.html" target="_blank">Hausdorff content</a> \(H^s_\infty\) の類似というかおもちゃみたいなものです。
+    どういう意味かと言うと、\[X=(\{0,1\}^n)^\N\to[0,1]^n,\quad a\mapsto\sum_{k=1}^\infty a(k)/2^k \]
+    によって \(X\) と \([0,1]^n\) を同一視しています。このとき \(u\in Y\) について \([u]\) は第 \(|u|\) 世代の2進立方体（diadic cube）に対応します。
+    同一視といっても、この写像は単射ではないので厳密な意味で同一視しているわけではないですが...<br>
+    すると、\(c\) というのは \(A\subset[0,1]^n\) の \(s\) 次 <a href="HdfMeas.html" target="_blank">Hausdorff content</a> \(H^s_\infty(A)\) の、被覆を2進立方体に限ったバージョンと思えます。
+</div>
     </div>
-    
+    という訳で補題Aを示していきましょう。以下この前編において、\(c\) と書いたら上で定めた集合関数 \(c:\P(X)\to[0,\infty)\) のことであるとしましょう。
+    <div class="panel claim">
+        <h3>補題A-1</h3>
+        <ol class="maru_d">
+        <li>
+            \(t,u\in Y\) について、\([t]\cap [u]\ne\varnothing\) ならば \([t]\subset[u]\) であるか, または \([u]\subset[t]\) である.
+        </li>
+        <li>
+            \(t,u\in Y\) について、\([t]\subset [u]\) ならば \(|t|\geq|u|\) である.
+        </li>
+        <li>
+            以下この前編でずっと \(T\subset Y\) に対して, \(T\) 上に半順序を
+            \[
+            t_1 \le t_2 \iff [t_1] \subset [t_2]
+            \]
+            で入れることにする. すると任意の \(t\in T\) に対して \(t\) の上界 \(\{u\in T:[t]\subset[u]\}\) は有限集合.
+            特に \(T\) の極大元 \(u\in T\) が存在して \([t]\subset [u]\).
+        </li>
+        <li>
+             \(T\subset Y\) について,
+             \[\forall u\in T, u\text{ は \(T\) で極大}\iff\{[u]\subset X:u\in T\} \text{ は互いに素}\]
+             である. この条件を \(T\) は互いに素であるということにする.
+        </li>
+        </ol>
+        <div class="panel remark">
+            証明はいずれも易しいので省略します。2進立方体でも類似のことが成り立ちますが、そちらでイメージしたほうが直感的かもしれません。
+        </div>
+    </div>
+        ここで記号として、\(T \subset Y\) について、
+        \[[T]:=\bigcup_{u \in T} [u]\]
+        と書くことにします.
+    </div>
+    <div class="panel claim">
+        <h3>補題A-2</h3>
+            \(T \subset Y\) とする.<br>
+            ここで
+            \(
+            \widetilde{T} = \{t \in T : T\text{ の極大元}\}
+            \)
+            とする. すると \([\widetilde T]=\bigcup_{u\in \widetilde T}[u]\) は非交和（disjoint union）で,
+            \[
+            [T]=[\widetilde T], \qquad \sum_{t \in \widetilde{T}} 2^{-s|t|} \leq \sum_{t \in T} 2^{-s|t|}.
+            \]
+<proof-block>
+\(\sum_{t \in \widetilde{T}} 2^{-s|t|} \le \sum_{t \in T} 2^{-s|t|}\) は，\(\widetilde{T} \subset T\) より明らか．<br>
+同様に \([\widetilde T]\subset[T]\) も明らか.<br>
+ここで \(x \in [T]=\bigcup_{t \in T} [t]\) をとる．\(t \in T\) が存在して \(x \in [t]\) である．
+今補題A-1(3)から, \([t] \subset [u]\) となる \(u \in T\) であって，\(T\) で極大元となるものが存在する．よって
+\(x \in [t]\subset[u] \subset [\widetilde T]\).
+</proof-block>
+<div class="panel Rem">
+特に \(A \subset X\) に対して，
+\[
+  c(A) = \inf\biggl\{\sum_{u \in T} 2^{-s|u|} : A \subset [T],\ T \text{ は互いに素}\biggr\}.
+\]
+です。
+</div>
+    </div>
+    <div class="panel claim">
+        <h3>補題A-3</h3>
+\(A \subset X\), \(T \subset Y\), \(u \in Y\) とする．<br>
+\([u] \subset A\) で, また \(T:\) 互いに素, \(A \subset [T]\) とする．さらに \([u] \subset [t]\) なる \(t \in T\) が存在しないとする．このとき
+\[
+  \widetilde{T} = \bigl(T \setminus \{t \in T : [t] \subset [u]\}\bigr) \cup \{u\}
+\]
+とおくと
+\[
+  [T]=[\widetilde T], \qquad \sum_{t \in \widetilde{T}} 2^{-s|t|} < \sum_{t \in T} 2^{-s|t|}.
+\]
+<proof-block>
+\([T]= [\widetilde{T}]\) は明らか．後者は，
+\[
+  2^{-s|u|} < \sum_{t \in T;\, [t] \subset [u]} 2^{-s|t|}
+\]
+を示せば十分．ここで \(T:\) 互いに素 で \([u]\subset A\subset[T]\) であることから
+\[
+  \bigcup_{t \in T;\, [t] \subset [u]} [t] = [u]
+\]
+であることに注意する．
 
+ところで \(C \subset [0,1]\) を普通のカントール集合としたとき，\(C^n\) と \(X = (\{0,1\}^n)^\N\) は自然に同一視できて,
+その同一視によって \(C^n\) と \(X\) は同相であるから，\(C^n\) 上の一様な確率 Borel 測度を \(X\) 上に押し出せる．
+
+\(C^n\) 上の一様な測度というのは，\(C^n\) を構成するときに第 \(k\) ステップでできる \(2^{kn}\) 個の 1 辺 \(3^{-k}\) の立方体 1 つの測度が \(2^{-kn}\) となるような測度である．
+
+\(X\) 上の測度にすると，これは \([u]\) の測度が \(2^{-|u|n}\) となるような測度である．これを \(\mu\) とおく．すると
+\[\begin{align*}
+  \mu([u]) &\le \sum_{t \in T;\, [t] \subset [u]} \mu([t]),\\
+  2^{-n|u|} &\le \sum_{t \in T;\, [t] \subset [u]} 2^{-n|t|}
+  = 2^{-n|u|} \sum_{t \in T;\, [t] \subset [u]} 2^{-n(|t| - |u|)} \\
+  &< 2^{-n|u|} \sum_{t \in T;\, [t] \subset [u]} 2^{-s(|t| - |u|)} \qquad (\because |t| \ge |u|,\ 0 < s < n),\\
+  2^{-s|u|} &< 2^{-s|u|} \sum_{t \in T;\, [t] \subset [u]} 2^{-s(|t| - |u|)} = \sum_{t \in T;\, [t] \subset [u]} 2^{-s|t|}.
+\end{align*}\]
+</proof-block>
+    </div>
+    <div class="panel claim">
+        <h3>補題A-4</h3>
+\(A_1, A_2 \subset X\) について，
+\[
+  c(A_1 \cap A_2) + c(A_1 \cup A_2) \le c(A_1) + c(A_2).
+\]
+である.
+        <proof-block>
+\(\varepsilon > 0\) をとる．\(T_1, T_2 \subset Y\) が存在して, \(i=1,2\) について
+\begin{align*}
+  c(A_i) \le \sum_{u \in T_i} 2^{-s|u|} \le c(A_i) + \varepsilon, \qquad A_i \subset [T_i], \qquad T_i:\text{ 互いに素}
+\end{align*}
+となる．
+\begin{align*}
+  T_3 &= \bigl\{u \in T_1 : \exists t \in T_2,\, [u] \subset [t]\bigr\} \cup \bigl\{u \in T_2 : \exists t \in T_1,\, [u] \subset [t]\bigr\} \\
+  T_4 &= \{u \in T_1 \cup T_2 : u\text{ は }T_1\cup T_2\text{ の極大元} \}
+\end{align*}
+とおく.
+<hr>
+今 各 \(x \in A_1 \cap A_2\) に対して，\(u_1 \in T_1\) と \(u_2 \in T_2\) が存在して \(x \in [u_1] \cap [u_2]\) である．すると \([u_1] \subset [u_2]\) または \([u_2] \subset [u_1]\) であるから，どちらにせよ
+\(
+  x \in [T_3].
+\)
+よって
+\[
+  A_1 \cap A_2 \subset [T_3].
+\]
+<hr>
+また 各 \(x \in A \cup B\) に対して，\(\exists u_1 \in T_1,\, x \in [u_1]\) または \(\exists u_2 \in T_2,\, x \in [u_2]\) である．
+<ul>
+<li>
+どちらか一方しか成り立たない場合, 対称なので \(\exists u_1 \in T_1,\, x \in [u_1]\) としてよい．すると \(u_1 \in T_4\) であり，\(x \in [T_4]\) となる.
+</li>
+<li>
+どちらも成り立つ場合,
+\(x \in [u_1] \cap [u_2]\) で，よって \([u_1] \subset [u_2]\) または \([u_2] \subset [u_1]\) である.
+\([u_1] \subset [u_2]\) としても一般性を失わない. この場合 \(u_2 \in T_4\) となる.
+（なぜなら \(u_2 \notin T_4\) なら \(\exists u_3 \in T_1 \cup T_2\)，\([u_2] \subsetneq [u_3]\) となるが，\(u_2\) は \(T_2\) で極大なので \(u_3 \in T_1\) であり,
+また \([u_1] \subset [u_3]\) である．しかし \(u_1\) は \(T_1\) で極大だから \([u_1] = [u_3]\) で，\([u_1] = [u_2] = [u_3]\) となり，\([u_2] \ne [u_3]\) に矛盾する.）
+よって \(x\in[T_4]\) である．よって \(A \cup B \subset [T_4]\)．
+</li>
+</ul>
+<hr>
+よって，
+\begin{align*}
+  c(A \cap B) + c(A \cup B) &\le \sum_{u \in T_3} 2^{-s|u|} + \sum_{u \in T_4} 2^{-s|u|} \\
+  &= \sum_{u \in T_3 \cup T_4} 2^{-s|u|} + \sum_{u \in T_3 \cap T_4} 2^{-s|u|}
+\end{align*}
+である．ここで \(u \in T_3 \cap T_4\) ならば，
+\[
+  u \in T_1,\ \exists t \in T_2,\ [u] \subset [t] \quad \text{または} \quad u \in T_2,\ \exists t \in T_1,\ [u] \subset [t]
+\]
+である．前者であるとすると，しかし \(u \in T_4\) だから \([u] = [t]\) で，\(u \in T_1 \cap T_2\).
+後者としても同様．よって \(T_3 \cap T_4 \subset T_1 \cap T_2\)．また明らかに \(T_3\cup T_4\subset T_1\cup T_2\). よって
+\begin{align*}
+  c(A \cap B) + c(A \cup B) &\le \sum_{u \in T_1 \cup T_2} 2^{-s|u|} + \sum_{u \in T_1 \cap T_2} 2^{-s|u|} \\
+  &= \sum_{u \in T_1} 2^{-s|u|} + \sum_{u \in T_2} 2^{-s|u|} \\
+  &\le c(A) + c(B) + 2\varepsilon
+\end{align*}
+で，
+\[
+  c(A \cap B) + c(A \cup B) \le c(A) + c(B).
+\]
+となる.
+        </proof-block>
+    </div>
+    <div class="panel claim">
+      <h3>補題A-5</h3>
+      \(U\subset X:\) 開集合 とする. \(j\in\N\) に対して
+      \[V_j=\bigcup\{[u]\subset X:u\in Y,\ |u|=j,\ [u]\subset U\}\]
+      とおく. すると各 \(j\in\N\) に対して \(T_j\subset Y\) が存在して, \(V_j\subset[T_j]\),
+      \[\begin{align}
+      c(V_j)=&\sum_{t\in T_j}2^{-s|t|},\\
+      \forall u\in Y, [[u]\subset V_j\implies & \exists t\in T_j,\ [u]\subset[t]]
+      \end{align}\]
+      <proof-block>
+まず \(T\subset Y:\) 互いに素 で, \(V_j\subset[T]\) であるものを考える. \(\widetilde T=\{t\in T:[t]\cap V_j\ne\varnothing\}\) とおくと
+\[V_j\subset[\widetilde T],\qquad \sum_{t\in \widetilde T}2^{-s|t|}\leq\sum_{t\in  T}2^{-s|t|}\]
+である. ここで \([u]\subset V_j,\ |u|=j\) となる有限個の \(u\in Y\) それぞれに対して有限回補題A-3を適用することで, \(\widehat T\subset Y\)
+が存在して, 各 \(t\in\widehat T\) に対して \([u]\subset V_j\), \(|u|=j\) となる \(u\in Y\) が存在して\([u]\subset [t]\) となり, また
+\([\widehat T]=[\widetilde T]\), 
+\[\sum_{t\in \widehat T}2^{-s|t|}\leq\sum_{t\in \widetilde T}2^{-s|t|}\]
+となる. 特に \(t\in \widehat T\) ならば \(|t|\leq j\) となる. よって
+\[c(V_j)=\inf \{\sum_{t\in T}2^{-s|t|}: V_j\subset[T],\ \forall t\in T,\ |t|\leq j\}\]
+である. ところでこのような \(T\) は有限個しかないので, この inf は達成される. つまり \(T_j\subset Y\) が存在して
+\[V_j\subset[T_j],\quad c(V_j)=\sum_{t\in T_j}2^{-s|t|}\]
+となる.
+<hr>
+\([u]\subset V_j\) のときに \([u]\subset V_j\implies  \exists t\in T_j,\ [u]\subset[t]\) であることは補題A-3と \(T_j\) の最小性から従う.
+（もしそうでなかったら補題A-3から, 真に \(\sum_{t\in T_j}2^{-s|t|}\) をより小さくなるように被覆 \(T_j\) を取り直せてしまう.）
+      </proof-block>
+    </div>
+    <div class="panel claim">
+      <h3>補題A-6</h3>
+      \(U\subset X:\) 開集合 とする. \(j\in\N\) に対して
+      \[V_j=\bigcup\{[u]\subset X:u\in Y,\ |u|=j,\ [u]\subset U\}\]
+      とおく. すると \(c(V_j)\to c(U)\) となる.
+      <proof-block>
+まず \(\{[u]:u\in Y\}\) は \(X\) の開基であるから \(V_j\uparrow U\) である. ゆえに \(\{c(V_j)\}\) は上に有界かつ単調増加なので,
+\(\lim_{j\to\infty} c(V_j)\) は存在する.
+<div class="panel Rem">
+  \(c\) の単調性を認めていますが, これは明らかでしょう。また \(c(X)\leq 2^n2^{-s}\) であるから \(c(U) < \infty\) です。
+</div>
+ここで補題A-5で存在を示した \(T_j\) をとる. \(T_j\in\P(Y)=\{0,1\}^Y\) であるが, \(Y\) は可算集合だから \(\{0,1\}^Y\) は
+離散位相の直積位相についてコンパクト距離付け可能. よって収束部分列が存在する. つまり \(N\subset \N\) と \(T\subset Y\) が存在して
+\[\# N=\infty,\qquad T_j\to T \quad\text{ in } \{0,1\}^Y \quad\text{(\(j\in N\), \(j\to\infty\)).}\]
+ここで \(t\in Y\) に対して
+\[t\notin T\iff[\exists j_0\in N,\forall j\in N, j\geq j_0\implies t\notin T_j]\]
+であることに注意する.
+<hr>
+\(U\subset[T]\) を示したい. \(x\in U\) をとる. \(U\) は開集合だから \(u\in Y\) が存在して \(x\in [u]\subset U\) である.
+ここで \(\forall t\in Y,\ [u]\subset[t]\implies t\notin T\) であると仮定する. すると, \([u]\subset[t]\) なる \(t\) は有限個しかないので
+上の注意から十分大きい \(j_0\in N_{>|u|}\) が存在して, \(j\geq j_0\) なる任意の \(j\in N\) と \([u]\subset[t]\) なる任意の \(t\in Y\) に対して
+\(t\notin T_j\) である. 特に \([u]\subset[t]\) なる任意の \(t\in Y\) に対して \(t\notin T_{j_0}\) である.
+<hr>
+しかし補題A-5でとった \(T_j\) の性質と \([u]\subset V_{j_0}\) であることから
+\([u]\subset[t]\) なる \(t\in Y\) が存在して \(t\in T_{j_0}\) である. よって
+\[ \exists t\in Y,\ [u]\subset[t],\ t\in T\]
+である. 特に \(x\in [t]\subset[T]\) で, \(U\subset[T]\) を示せた.
+<hr>
+よってFatouの補題から(\(\chi_{T_j}\to\chi_T\) (\(Y\) 上各点収束) であることに注意して)
+\[\begin{align}
+c(U)&\leq \sum_{u\in T}2^{-s|u|}=\sum_{u\in Y}\lim_{j\in N}2^{-s|u|}\chi_{T_j}(u)\\
+&\leq\liminf_{j\in N}\sum_{u\in T_j} 2^{-s|u|}\\
+&=\liminf_{j\in N} c(V_j)=\lim_{j\in\N}c(V_j)\leq c(U)
+\end{align}\]
+であるから, \(c(V_j)\to c(U)\).
+      </proof-block>
+    </div>
+    <div class="panel claim">
+      <h3>補題A-7</h3>
+      \(U_j\uparrow U\), \(U_j\subset X:\) 開集合 であるとする. このとき \(c(U_j)\to c(U)\).
+      <proof-block>
+\(\e>0\) をとる. 補題A-6より \(k\in\N\) が存在して,
+\[K=\bigcup\{[u]:|u|=k,[u]\subset U\}\]
+とおくと \(c(K)\leq c(U)\leq c(K)+\e\) となる. いま \(K\subset U\) はコンパクト集合の有限合併だからコンパクトで, ゆえに
+\(j\in\N\) が存在して \(K\subset U_j\).
+<div class="panel Rem">
+  \([u]\) は開かつコンパクトであることに注意してください。また, \(U_j\uparrow U\) だから \((U_j)\) は \(K\)
+  の開被覆になっています。
+</div>
+よって
+\[c(U)-\e\leq c(K)\leq c(U_j)\leq c(U)\]
+であるが, いま \(c(U_j)\) は単調増加かつ上に有界だから収束して, \(c(U_j)\to c(U)\). 
+      </proof-block>
+    </div>
+    <div class="panel claim">
+      <h3>補題A-8</h3>
+      \(A\subset X\) と \(\e>0\) について, \(A\subset U\) なる \(X\) の開集合 \(U\) が存在して
+      \(c(U)\leq c(A)+\e\).
+      <proof-block>
+        任意の \(T\subset Y\) に対して \([T]\) は開集合であるから明らか.
+      </proof-block>
+    </div>
+    補題Aの証明にかかります。
+    <div class="panel claim">
+      <h3>補題A（再掲）</h3>
+      \(c : \P(X) \to [0, \infty)\) を，\(A \subset X\) に対して
+      \[
+        c(A) = \inf\biggl\{\sum_{u \in T} 2^{-s|u|} : T \subset Y,\ A \subset [T]\biggr\}
+      \]
+      と定めると，\(c\) は <a href="choquet.html" target="_blank">Choquet capacity</a> である．すなわち，
+      <ol class="maru_d">
+        <li> \(A \subset B \subset X\) ならば \(c(A) \le c(B)\) （単調性）</li>
+        <li> \(A_j \uparrow A\) ならば \(c(A_j) \to c(A) \quad (j \in \N)\) （増大列についての極限の交換）</li>
+        <li> \(K_j \downarrow K\)，\(K_j\)：コンパクト ならば \(c(K_j) \to c(K) \quad (j \in \N)\) （コンパクト集合の減少列についての極限の交換）</li>
+      </ol>
+      <proof-block>
+        <ol class="maru_d">
+          <li>
+            単調性は定義から明らか.
+          </li>
+          <li>
+\(A_j\uparrow A\) なる \(X\) の部分集合の列をとる. \(\e>0\) をとる. \(A_j\subset V_j\subset X\) なる開集合 \(V_j\) が存在して
+\(c(V_j)\leq c(A_j)+\e/2^j\) である.
+\(U_j=V_1\cup\cdots \cup V_j\) とおく. <hr>
+補題A-4より \[c(U_{j-1}\cap V_j)+c(U_j)\leq c(U_{j-1})+c(V_j)\]
+であるが, \(c(A_{j-1})\leq c(U_{j-1}\cap V_j)\) であるから
+\[c(A_{j-1})+c(U_j)\leq c(U_{j-1})+c(A_j)+\e/2^j\]
+で, \[0\leq c(U_j)-c(U_{j-1})\leq c(A_j)-c(A_{j-1})+\e/2^j\]
+\[\begin{align}
+c(U_j)&=c(U_1)+\sum_{i=1}^{j-1}(c(U_{i+1})-c(U_i))\\
+&\leq c(A_1)+\e/2+\sum_{i=1}^{j-1}(c(A_{i+1})-c(A_i)+\e/2^{i+1})\\
+&\leq \e+c(A_j)
+\end{align}\]
+となる.<hr>
+よって \(U_j\uparrow U\) と補題A-7から
+\[
+c(A)\leq c(U)=\lim_j c(U_j)\leq \lim c(A_j)+\e\leq c(A)+\e
+\]
+で, \(c(A)=\lim_j c(A_j)\).
+          </li>
+          <li>
+
+
+\(K_j \subset X\)：コンパクト，\(K_j \downarrow K \ (j \to \infty)\) となるものをとる．\(\varepsilon > 0\) をとる．今 \(K \subset U\) なる開集合 \(U \subset X\) が存在して，\(c(U) \le c(K) + \varepsilon\)．すると \(U \cup \bigcup_{j \in \N} K_j^c = X\) であり，\(X\)：コンパクト，\(\{U, K_1^c, K_2^c, \dots\}\)：\(X\) の開被覆 であるから \(m \in \N\) が存在して \(U \cup \bigcup_{j=1}^m K_j^c = X\)．つまり \(K_m = \bigcap_{j=1}^m K_j \subset U\)．
+
+よって
+\[
+  c(K) \le \lim_{j \to \infty} c(K_j) \le c(K_m) \le c(U) \le c(K) + \varepsilon
+\]
+であるから，
+\[
+  c(K) = \lim_{j \to \infty} c(K_j).
+\]
+          </li>
+        </ol>
+      </proof-block>
+    </div>
+
+
+
+    <hr>
+    <div class="panel comment">
+      ここらへんは大変ですが、次回からは性格がすこし変わってくると思いますよ。
+    </div>
+    <div class="panel">
+      <h3>関連する他の記事</h3>
+      <li><a href="cptHdfMeas2.html" target="_blank">Hausdorff測度の非アトム性の証明（中編）</a></li>
+      <li><a href="cptHdfMeas3.html" target="_blank">Hausdorff測度の非アトム性の証明（後編）</a></li>
+    </div>
     </main>
 </body>
 <script src="config/proof.js"></script>
